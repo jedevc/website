@@ -1,5 +1,13 @@
-import React from "react"
+import React from 'react'
+
+import { Layout, Section } from '../layouts/home'
 
 export default function Home() {
-  return <div>Hello world!</div>
+  return (
+    <Layout>
+      <Section>
+        <div>Hello world!</div>
+      </Section>
+    </Layout>
+  )
 }
