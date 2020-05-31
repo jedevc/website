@@ -14,7 +14,7 @@ export default function Blog({ data }) {
         <div>
           {edges.map(({ node }) => (
             <Link key={node.id} to={node.fields.slug}>
-              <PostPreview title={node.frontmatter.title} date={new Date()} summary={node.excerpt} />
+              <PostPreview title={node.frontmatter.title} date={node.frontmatter.date} summary={node.excerpt} />
             </Link>
           ))}
         </div>
@@ -32,6 +32,7 @@ export const query = graphql`
           excerpt
           frontmatter {
             title
+            date
           }
           fields {
             slug

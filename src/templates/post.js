@@ -11,7 +11,7 @@ export default function BlogPost({ data }) {
   return (
     <Layout>
       <Section>
-        <Post title={post.frontmatter.title} date={new Date()} content={post.html} />
+        <Post title={post.frontmatter.title} date={post.frontmatter.date} content={post.html} />
       </Section>
     </Layout>
   )
@@ -23,6 +23,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        date
       }
     }
   }
