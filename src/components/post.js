@@ -21,9 +21,9 @@ export function Post({ title, date, content }) {
 function PostHeader({ title, date }) {
   return (
     <>
-      <h2 className="title" style={{ marginBottom: "0.6rem" }}>
+      <h1 className="title" style={{ marginBottom: "0.6rem" }}>
         {title}
-      </h2>
+      </h1>
       <div
         className="has-text-grey is-size-7"
         style={{ marginBottom: "1.2rem" }}

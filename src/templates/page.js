@@ -9,7 +9,7 @@ export default function BlogPost({ data }) {
   return (
     <Layout>
       <Section>
-        <h2 className="title">{page.frontmatter.title}</h2>
+        <h1 className="title">{page.frontmatter.title}</h1>
         <div
           className="content"
           dangerouslySetInnerHTML={{ __html: page.html }}
