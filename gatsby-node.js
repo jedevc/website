@@ -10,7 +10,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: path.join("blog", slug),
+      value: path.join("/blog", slug),
     })
   }
 }
