@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 
-import { Layout, Section } from '../layouts/home'
+import { Layout, Section } from "../layouts/home"
 
-import Socials from '../components/socials'
+import Socials from "../components/socials"
 
 export default function Home() {
   return (

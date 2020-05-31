@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import React, { useState } from "react"
+import { Link } from "gatsby"
 
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub } from "react-icons/fa"
 
 export default function Nav() {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
   const handleToggle = () => {
-    setActive(!active);
+    setActive(!active)
   }
 
   const items = [
     { name: "Home", link: "/" },
-    { name: "Blog", link: "/blog"},
+    { name: "Blog", link: "/blog" },
   ]
 
   return (
@@ -61,9 +61,7 @@ function NavBrand({ title, onToggle }) {
 
 function NavMenu({ children, active }) {
   return (
-    <div className={`navbar-menu ${active ? "is-active" : ""}`}>
-      {children}
-    </div>
+    <div className={`navbar-menu ${active ? "is-active" : ""}`}>{children}</div>
   )
 }
 

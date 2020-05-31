@@ -6,7 +6,7 @@ import { Layout, Section } from "../layouts/basic"
 import { PostPreview } from "../components/post"
 
 export default function Blog({ data }) {
-  const { edges } = data.allMarkdownRemark;
+  const { edges } = data.allMarkdownRemark
 
   return (
     <Layout>
@@ -14,7 +14,11 @@ export default function Blog({ data }) {
         <div>
           {edges.map(({ node }) => (
             <Link key={node.id} to={node.fields.slug}>
-              <PostPreview title={node.frontmatter.title} date={node.frontmatter.date} summary={node.excerpt} />
+              <PostPreview
+                title={node.frontmatter.title}
+                date={node.frontmatter.date}
+                summary={node.excerpt}
+              />
             </Link>
           ))}
         </div>

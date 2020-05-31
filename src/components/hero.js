@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import Nav from './nav'
+import Nav from "./nav"
 
 export default function Hero({ title, subtitle }) {
   return (
@@ -16,5 +16,5 @@ export default function Hero({ title, subtitle }) {
         </div>
       </div>
     </section>
-  );
+  )
 }

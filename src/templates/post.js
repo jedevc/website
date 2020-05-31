@@ -11,7 +11,11 @@ export default function BlogPost({ data }) {
   return (
     <Layout>
       <Section>
-        <Post title={post.frontmatter.title} date={post.frontmatter.date} content={post.html} />
+        <Post
+          title={post.frontmatter.title}
+          date={post.frontmatter.date}
+          content={post.html}
+        />
       </Section>
     </Layout>
   )

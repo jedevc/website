@@ -35,11 +35,11 @@ function PostHeader({ title, date }) {
 }
 
 function formatDate(dateString) {
-  const date = new Date(dateString);
+  const date = new Date(dateString)
   const options = {
     day: "numeric",
     month: "long",
-    year: "numeric"
+    year: "numeric",
   }
-  return date.toLocaleDateString('en-GB', options);
+  return date.toLocaleDateString("en-GB", options)
 }
