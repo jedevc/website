@@ -1,10 +1,21 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 
 import { FaGithub } from "react-icons/fa"
 
 export default function Nav() {
   const [active, setActive] = useState(false)
+
+  const data = useStaticQuery(graphql`
+    query NavQuery {
+      site {
+        siteMetadata {
+          name
+        }
+      }
+    }
+  `)
+  const { name } = data.site.siteMetadata
 
   const handleToggle = () => {
     setActive(!active)
@@ -17,7 +28,7 @@ export default function Nav() {
 
   return (
     <NavBar>
-      <NavBrand title="jedevc.com" onToggle={handleToggle} />
+      <NavBrand title={name} onToggle={handleToggle} />
       <NavMenu active={active}>
         <NavStart items={items} />
         <NavEnd>

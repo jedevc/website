@@ -1,11 +1,24 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Hero from "../components/hero"
 
 export function Layout({ children }) {
+  const data = useStaticQuery(graphql`
+    query HomeLayoutQuery {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `)
+  const { title, description } = data.site.siteMetadata
+
   return (
     <>
-      <Hero title="Justin Chadwell" subtitle="Personal website" />
+      <Hero title={title} subtitle={description} />
       {children}
     </>
   )
