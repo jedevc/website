@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import { Layout, Section } from "../layouts/home"
 import Socials from "../components/socials"
+import SEO from "../components/seo"
 
 export default function Home() {
   const data = useStaticQuery(graphql`
@@ -23,6 +24,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO path="/" />
       <Section>
         <div className="columns">
           <div className="column content">

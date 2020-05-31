@@ -10,7 +10,7 @@ export default function Nav() {
     query NavQuery {
       site {
         siteMetadata {
-          name
+          title
           social {
             github
           }
@@ -18,7 +18,7 @@ export default function Nav() {
       }
     }
   `)
-  const { name, social } = data.site.siteMetadata
+  const { title, social } = data.site.siteMetadata
 
   const handleToggle = () => {
     setActive(!active)
@@ -32,7 +32,7 @@ export default function Nav() {
 
   return (
     <NavBar>
-      <NavBrand title={name} onToggle={handleToggle} />
+      <NavBrand title={title} onToggle={handleToggle} />
       <NavMenu active={active}>
         <NavStart items={items} />
         <NavEnd>

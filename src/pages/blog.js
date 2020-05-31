@@ -2,14 +2,15 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import { Layout, Section } from "../layouts/basic"
-
 import { PostPreview } from "../components/post"
+import SEO from "../components/seo"
 
 export default function Blog({ data }) {
   const { edges } = data.allMarkdownRemark
 
   return (
     <Layout>
+      <SEO title="Blog" path="/blog" />
       <Section>
         <div>
           {edges.map(({ node }) => (

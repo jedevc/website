@@ -6,9 +6,11 @@
 
 module.exports = {
   siteMetadata: {
-    name: `jedevc`,
+    title: `jedevc`,
+    author: {
+      name: `Justin Chadwell`,
+    },
     siteUrl: `https://jedevc.com`,
-    title: `Justin Chadwell`,
     description: `My personal website and ramblings`,
     social: {
       github: "jedevc",
@@ -34,5 +36,6 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
   ],
 }

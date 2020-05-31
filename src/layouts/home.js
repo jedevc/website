@@ -10,15 +10,20 @@ export function Layout({ children }) {
         siteMetadata {
           title
           description
+          author {
+            name
+          }
         }
       }
     }
   `)
-  const { title, description } = data.site.siteMetadata
+  const { title, description, author } = data.site.siteMetadata
+
+  const pageTitle = `${title} (${author.name})`
 
   return (
     <>
-      <Hero title={title} subtitle={description} />
+      <Hero title={pageTitle} subtitle={description} />
       {children}
     </>
   )
