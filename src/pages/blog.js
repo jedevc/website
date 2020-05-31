@@ -29,7 +29,7 @@ export default function Blog({ data }) {
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(filter: { fields: { type: { eq: "post" } } }) {
       edges {
         node {
           id

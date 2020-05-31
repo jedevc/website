@@ -7,11 +7,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const slug = createFilePath({ node, getNode, basePath: `posts/` })
     const { sourceInstanceName } = getNode(node.parent)
 
-    createNodeField({
-      node,
-      name: `slug`,
-      value: path.join("/blog", slug),
-    })
+    switch (sourceInstanceName) {
+      case `pages`:
+        createNodeField({ node, name: `type`, value: `page` })
+        createNodeField({ node, name: `slug`, value: slug })
+        break
+      case `posts`:
+        createNodeField({ node, name: `type`, value: `post` })
+        createNodeField({ node, name: `slug`, value: path.join(`/blog`, slug) })
+        break
+    }
   }
 }
 
@@ -23,6 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             fields {
+              type
               slug
             }
           }
@@ -32,9 +38,19 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    let component
+    switch (node.fields.type) {
+      case "page":
+        component = path.resolve(`./src/templates/page.js`)
+        break
+      case "post":
+        component = path.resolve(`./src/templates/post.js`)
+        break
+    }
+
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/post.js`),
+      component: component,
       context: {
         slug: node.fields.slug,
       },

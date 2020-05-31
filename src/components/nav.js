@@ -27,6 +27,7 @@ export default function Nav() {
   const items = [
     { name: "Home", link: "/" },
     { name: "Blog", link: "/blog" },
+    { name: "About", link: "/about" },
   ]
 
   return (
@@ -35,13 +36,17 @@ export default function Nav() {
       <NavMenu active={active}>
         <NavStart items={items} />
         <NavEnd>
-          {social.github && 
-          <a className="button is-dark" href={`https://github.com/${social.github}`}>
-            <span className="icon">
-              <FaGithub />
-            </span>
-            <span>GitHub</span>
-          </a>}
+          {social.github && (
+            <a
+              className="button is-dark"
+              href={`https://github.com/${social.github}`}
+            >
+              <span className="icon">
+                <FaGithub />
+              </span>
+              <span>GitHub</span>
+            </a>
+          )}
         </NavEnd>
       </NavMenu>
     </NavBar>

@@ -15,13 +15,20 @@ module.exports = {
       twitter: "jedevc",
       linkedin: "jedevc",
       email: "jedevc@gmail.com",
-    }
+    },
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `Post`,
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
         path: `${__dirname}/src/posts/`,
       },
     },
