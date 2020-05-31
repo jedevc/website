@@ -10,6 +10,12 @@ module.exports = {
     siteUrl: `https://jedevc.com`,
     title: `Justin Chadwell`,
     description: `My personal website and ramblings`,
+    social: {
+      github: "jedevc",
+      twitter: "jedevc",
+      linkedin: "jedevc",
+      email: "jedevc@gmail.com",
+    }
   },
   plugins: [
     {

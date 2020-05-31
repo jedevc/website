@@ -1,10 +1,26 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { Layout, Section } from "../layouts/home"
-
 import Socials from "../components/socials"
 
 export default function Home() {
+  const data = useStaticQuery(graphql`
+    query IndexSocialQuery {
+      site {
+        siteMetadata {
+          social {
+            github
+            twitter
+            linkedin
+            email
+          }
+        }
+      }
+    }
+  `)
+  const { github, twitter, linkedin, email } = data.site.siteMetadata.social
+
   return (
     <Layout>
       <Section>
@@ -23,10 +39,10 @@ export default function Home() {
           </div>
           <div className="column">
             <Socials
-              email="jedevc@gmail.com"
-              twitter="jedevc"
-              linkedin="jedevc"
-              github="jedevc"
+              github={github}
+              twitter={twitter}
+              linkedin={linkedin}
+              email={email}
             />
           </div>
         </div>

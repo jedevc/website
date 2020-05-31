@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 import { FaGithub } from "react-icons/fa"
 
@@ -11,11 +11,14 @@ export default function Nav() {
       site {
         siteMetadata {
           name
+          social {
+            github
+          }
         }
       }
     }
   `)
-  const { name } = data.site.siteMetadata
+  const { name, social } = data.site.siteMetadata
 
   const handleToggle = () => {
     setActive(!active)
@@ -32,12 +35,13 @@ export default function Nav() {
       <NavMenu active={active}>
         <NavStart items={items} />
         <NavEnd>
-          <a className="button is-dark" href="https://github.com/jedevc">
+          {social.github && 
+          <a className="button is-dark" href={`https://github.com/${social.github}`}>
             <span className="icon">
               <FaGithub />
             </span>
             <span>GitHub</span>
-          </a>
+          </a>}
         </NavEnd>
       </NavMenu>
     </NavBar>

@@ -41,3 +41,26 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type Site implements Node {
+      siteMetadata: SiteMetadata!
+    }
+    type SiteMetadata {
+      name: String!
+      siteUrl: String!
+      title: String!
+      description: String!
+      social: SiteMetadataSocial!
+    }
+    type SiteMetadataSocial {
+      github: String
+      twitter: String
+      linkedin: String
+      email: String
+    }
+  `
+  createTypes(typeDefs)
+}
