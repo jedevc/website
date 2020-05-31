@@ -75,7 +75,7 @@ function NavStart({ items }) {
           key={index}
           to={item.link}
           className="navbar-item"
-          activeClassName="has-text-weight-bold"
+          activeClassName="is-active has-text-weight-bold"
         >
           {item.name}
         </Link>
