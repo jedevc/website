@@ -27,6 +27,7 @@ export default function Nav() {
   const items = [
     { name: "Home", link: "/" },
     { name: "Blog", link: "/blog" },
+    { name: "CV", link: "https://cv.jedevc.com" },
     { name: "About", link: "/about" },
   ]
 
@@ -88,16 +89,28 @@ function NavMenu({ children, active }) {
 function NavStart({ items }) {
   return (
     <div className="navbar-start">
-      {items.map((item, index) => (
-        <Link
-          key={index}
-          to={item.link}
-          className="navbar-item"
-          activeClassName="is-active has-text-weight-bold"
-        >
-          {item.name}
-        </Link>
-      ))}
+      {items.map((item, index) => {
+        if (item.link[0] === "/") {
+          // internal links get the link component
+          return (
+            <Link
+              to={item.link}
+              key={index}
+              className="navbar-item"
+              activeClassName="is-active has-text-weight-bold"
+            >
+              {item.name}
+            </Link>
+          )
+        } else {
+          // external links just get the normal anchor tag
+          return (
+            <a href={item.link} key={index} className="navbar-item">
+              {item.name}
+            </a>
+          )
+        }
+      })}
     </div>
   )
 }

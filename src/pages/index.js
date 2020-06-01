@@ -18,7 +18,7 @@ export default function Index() {
           }
         }
       }
-      markdownRemark(fields: {type: {eq: "data"}, slug: {eq: "/"}}) {
+      markdownRemark(fields: { type: { eq: "data" }, slug: { eq: "/" } }) {
         html
       }
     }
@@ -40,9 +40,7 @@ export default function Index() {
       <SEO path="/" />
       <Section>
         <div className="columns">
-          <div className="column content">
-            {sectionsView[0]}
-          </div>
+          <div className="column content">{sectionsView[0]}</div>
           <div className="column">
             <Socials
               github={github}
@@ -54,9 +52,7 @@ export default function Index() {
         </div>
       </Section>
       {sectionsView.slice(1).map((section, index) => (
-        <Section key={index}>
-          {section}
-        </Section>
+        <Section key={index}>{section}</Section>
       ))}
     </Layout>
   )
