@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import { Layout, Section } from "../layouts/basic"
 import SEO from "../components/seo"
+import Dropdown from "../components/dropdown"
 
 export default function BlogPost({ data }) {
   const page = data.markdownRemark
@@ -15,6 +16,7 @@ export default function BlogPost({ data }) {
         path={page.fields.slug}
       />
       <Section>
+        <Dropdown path={page.fields.path} />
         <h1 className="title">{page.frontmatter.title}</h1>
         <div
           className="content"
@@ -35,6 +37,7 @@ export const query = graphql`
       }
       fields {
         slug
+        path
       }
     }
   }

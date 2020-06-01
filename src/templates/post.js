@@ -5,6 +5,7 @@ import { Layout, Section } from "../layouts/basic"
 
 import { Post } from "../components/post"
 import SEO from "../components/seo"
+import Dropdown from "../components/dropdown"
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
@@ -17,6 +18,7 @@ export default function BlogPost({ data }) {
         path={post.fields.slug}
       />
       <Section>
+        <Dropdown path={post.fields.path} />
         <Post
           title={post.frontmatter.title}
           date={post.frontmatter.date}
@@ -38,6 +40,7 @@ export const query = graphql`
       }
       fields {
         slug
+        path
       }
     }
   }
