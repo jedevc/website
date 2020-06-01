@@ -61,5 +61,5 @@ github [here][project link].
 [gamepad api]: https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API
 [joycon driver]: https://github.com/riking/joycon
 [demo video]: https://www.youtube.com/watch?v=rGMdvvvoX68
-[demo video thumbnail]: http://img.youtube.com/vi/rGMdvvvoX68/0.jpg
+[demo video thumbnail]: https://img.youtube.com/vi/rGMdvvvoX68/0.jpg
 [project link]: https://github.com/wrussell1999/aston-hack-2018
