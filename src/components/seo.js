@@ -44,7 +44,7 @@ export default function SEO({ title, description, path }) {
       rel: `icon`,
       type: `image/x-icon`,
       href: `/favicon.ico`,
-    }
+    },
   ]
   if (path) {
     links.push({

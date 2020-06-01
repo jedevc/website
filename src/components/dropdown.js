@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { FaAngleDown } from "react-icons/fa"
 
 export default function Dropdown({ path }) {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
   const data = useStaticQuery(graphql`
     query DropDownQuery {
@@ -16,7 +16,7 @@ export default function Dropdown({ path }) {
   `)
   const { github } = data.site.siteMetadata
 
-  let items = [];
+  let items = []
   if (github && path) {
     // Craft the url to the github path
     // This is annoyingly difficult as we might be provided with slashes in the
@@ -26,19 +26,21 @@ export default function Dropdown({ path }) {
     const href = url.href.replace(/([^:]\/)\/+/g, "$1")
 
     items.push(
-      <a key="github" className="dropdown-item" href={href}>View on GitHub</a>
+      <a key="github" className="dropdown-item" href={href}>
+        View on GitHub
+      </a>
     )
   }
 
-  const handleClick = (event) => {
-    setActive(!active);
-    event.stopPropagation();
-    event.nativeEvent.stopImmediatePropagation();
+  const handleClick = event => {
+    setActive(!active)
+    event.stopPropagation()
+    event.nativeEvent.stopImmediatePropagation()
   }
 
   useEffect(() => {
     const onExternalClick = () => {
-      setActive(false);
+      setActive(false)
     }
     document.addEventListener("click", onExternalClick)
     return () => {
@@ -51,16 +53,18 @@ export default function Dropdown({ path }) {
   }
 
   return (
-    <div className={`dropdown is-right is-pulled-right ${active ? "is-active" : ""}`}>
+    <div
+      className={`dropdown is-right is-pulled-right ${
+        active ? "is-active" : ""
+      }`}
+    >
       <div className="dropdown-trigger">
         <a className="icon is-small" onClick={handleClick}>
           <FaAngleDown />
         </a>
       </div>
       <div className="dropdown-menu">
-        <div className="dropdown-content">
-          {items}
-        </div>
+        <div className="dropdown-content">{items}</div>
       </div>
     </div>
   )

@@ -12,13 +12,21 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         slug = createFilePath({ node, getNode })
         createNodeField({ node, name: `type`, value: `page` })
         createNodeField({ node, name: `slug`, value: slug })
-        createNodeField({ node, name: `path`, value: path.join(`/src/pages`, relativePath) })
+        createNodeField({
+          node,
+          name: `path`,
+          value: path.join(`/src/pages`, relativePath),
+        })
         break
       case `posts`:
         slug = createFilePath({ node, getNode, basePath: `posts/` })
         createNodeField({ node, name: `type`, value: `post` })
         createNodeField({ node, name: `slug`, value: path.join(`/blog`, slug) })
-        createNodeField({ node, name: `path`, value: path.join(`/src/posts`, relativePath) })
+        createNodeField({
+          node,
+          name: `path`,
+          value: path.join(`/src/posts`, relativePath),
+        })
         break
       case `data`:
         createNodeField({ node, name: `type`, value: `data` })
