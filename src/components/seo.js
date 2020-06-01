@@ -39,7 +39,13 @@ export default function SEO({ title, description, path }) {
     },
   ]
 
-  let links = []
+  let links = [
+    {
+      rel: `icon`,
+      type: `image/x-icon`,
+      href: `/favicon.ico`,
+    }
+  ]
   if (path) {
     links.push({
       href: new URL(path, site.siteMetadata.siteUrl).href,
