@@ -6,12 +6,14 @@
 
 module.exports = {
   siteMetadata: {
-    title: `jedevc`,
+    name: `jedevc`,
+    display: `<jedevc />`,
+    title: `Justin Chadwell`,
+    description: `My personal website and ramblings`,
     author: {
       name: `Justin Chadwell`,
     },
     siteUrl: `https://jedevc.com`,
-    description: `My personal website and ramblings`,
     social: {
       github: "jedevc",
       twitter: "jedevc",
