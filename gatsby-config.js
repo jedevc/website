@@ -20,6 +20,7 @@ module.exports = {
       linkedin: "jedevc",
       email: "jedevc@gmail.com",
     },
+    github: `https://github.com/jedevc/website`,
   },
   plugins: [
     {

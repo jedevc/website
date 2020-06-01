@@ -4,7 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const { sourceInstanceName } = getNode(node.parent)
+    const { sourceInstanceName, name, relativePath } = getNode(node.parent)
 
     let slug
     switch (sourceInstanceName) {
@@ -12,16 +12,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         slug = createFilePath({ node, getNode })
         createNodeField({ node, name: `type`, value: `page` })
         createNodeField({ node, name: `slug`, value: slug })
+        createNodeField({ node, name: `path`, value: path.join(`/src/pages`, relativePath) })
         break
       case `posts`:
         slug = createFilePath({ node, getNode, basePath: `posts/` })
         createNodeField({ node, name: `type`, value: `post` })
         createNodeField({ node, name: `slug`, value: path.join(`/blog`, slug) })
+        createNodeField({ node, name: `path`, value: path.join(`/src/posts`, relativePath) })
         break
       case `data`:
-        slug = createFilePath({ node, getNode })
         createNodeField({ node, name: `type`, value: `data` })
-        createNodeField({ node, name: `slug`, value: slug })
+        createNodeField({ node, name: `name`, value: name })
         break
       default:
         return
@@ -77,10 +78,16 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type SiteMetadata {
       name: String!
-      siteUrl: String!
       title: String!
+      display: String!
       description: String!
+      siteUrl: String!
+      author: SiteMetadataAuthor!
       social: SiteMetadataSocial!
+      github: String
+    }
+    type SiteMetadataAuthor {
+      name: String!
     }
     type SiteMetadataSocial {
       github: String

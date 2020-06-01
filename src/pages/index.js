@@ -18,7 +18,7 @@ export default function Index() {
           }
         }
       }
-      markdownRemark(fields: { type: { eq: "data" }, slug: { eq: "/" } }) {
+      markdownRemark(fields: { type: { eq: "data" }, name: { eq: "index" } }) {
         html
       }
     }
