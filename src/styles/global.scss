@@ -1,3 +1,22 @@
 @charset "utf-8";
 
 @import "~bulma/bulma";
+@import "~prism-themes/themes/prism-ghcolors.css";
+
+// avoid bulma and prism css conflicts
+// https://www.darraghoriordan.com/2019/01/20/bulma-prismjs-in-gatsby-css-conflicts/
+.token.tag,
+.token.content,
+.token.number {
+  display: inline;
+  padding: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+  border-radius: inherit;
+  font-weight: inherit;
+  white-space: inherit;
+  background: inherit;
+  margin: inherit;
+}
