@@ -5,9 +5,9 @@ import { Layout, Section } from "../layouts/home"
 import Socials from "../components/socials"
 import SEO from "../components/seo"
 
-export default function Home() {
+export default function Index() {
   const data = useStaticQuery(graphql`
-    query IndexSocialQuery {
+    query IndexQuery {
       site {
         siteMetadata {
           social {
@@ -18,9 +18,22 @@ export default function Home() {
           }
         }
       }
+      markdownRemark(fields: {type: {eq: "data"}, slug: {eq: "/"}}) {
+        html
+      }
     }
   `)
+
   const { github, twitter, linkedin, email } = data.site.siteMetadata.social
+  const sections = data.markdownRemark.html.split("<hr>")
+
+  const sectionsView = sections.map((section, index) => (
+    <div
+      key={index}
+      className="content"
+      dangerouslySetInnerHTML={{ __html: section }}
+    />
+  ))
 
   return (
     <Layout>
@@ -28,16 +41,7 @@ export default function Home() {
       <Section>
         <div className="columns">
           <div className="column content">
-            <h1 className="title is-family-monospace">whoami</h1>
-            <p>
-              Hey there, I'm Justin! I also go as @jedevc in online places, a
-              random collection of letters which you can pronounce however you
-              like, I don't really mind.
-            </p>
-            <p>
-              I'm a university student, developer, occasional web designer, and
-              security enthusiast!
-            </p>
+            {sectionsView[0]}
           </div>
           <div className="column">
             <Socials
@@ -49,6 +53,11 @@ export default function Home() {
           </div>
         </div>
       </Section>
+      {sectionsView.slice(1).map((section, index) => (
+        <Section key={index}>
+          {section}
+        </Section>
+      ))}
     </Layout>
   )
 }

@@ -4,18 +4,27 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `posts/` })
     const { sourceInstanceName } = getNode(node.parent)
 
+    let slug
     switch (sourceInstanceName) {
       case `pages`:
+        slug = createFilePath({ node, getNode })
         createNodeField({ node, name: `type`, value: `page` })
         createNodeField({ node, name: `slug`, value: slug })
         break
       case `posts`:
+        slug = createFilePath({ node, getNode, basePath: `posts/` })
         createNodeField({ node, name: `type`, value: `post` })
         createNodeField({ node, name: `slug`, value: path.join(`/blog`, slug) })
         break
+      case `data`:
+        slug = createFilePath({ node, getNode })
+        createNodeField({ node, name: `type`, value: `data` })
+        createNodeField({ node, name: `slug`, value: slug })
+        break
+      default:
+        return
     }
   }
 }
@@ -46,6 +55,8 @@ exports.createPages = async ({ graphql, actions }) => {
       case "post":
         component = path.resolve(`./src/templates/post.js`)
         break
+      default:
+        return
     }
 
     createPage({
