@@ -64,6 +64,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-yaml`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,

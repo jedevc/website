@@ -16,20 +16,23 @@ export default function Nav() {
           }
         }
       }
+
+      allNavYaml {
+        edges {
+          node {
+            name
+            link
+          }
+        }
+      }
     }
   `)
   const { display, social } = data.site.siteMetadata
+  const items = data.allNavYaml.edges.map(edge => edge.node)
 
   const handleToggle = () => {
     setActive(!active)
   }
-
-  const items = [
-    { name: "Home", link: "/" },
-    { name: "Blog", link: "/blog" },
-    { name: "CV", link: "https://cv.jedevc.com" },
-    { name: "About", link: "/about" },
-  ]
 
   return (
     <NavBar>
