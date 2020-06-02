@@ -2,6 +2,14 @@ import React from "react"
 
 import Nav from "../components/nav"
 
+export default function Full({ children }) {
+  return (
+    <Layout>
+      <Section>{children}</Section>
+    </Layout>
+  )
+}
+
 export function Layout({ children }) {
   return (
     <>

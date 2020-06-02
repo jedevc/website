@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { Layout, Section } from "../layouts/basic"
+import Layout from "../layouts/basic"
 
 import { Post } from "../components/post"
 import SEO from "../components/seo"
@@ -17,14 +17,12 @@ export default function BlogPost({ data }) {
         description={post.excerpt}
         path={post.fields.slug}
       />
-      <Section>
-        <Dropdown path={post.fields.path} />
-        <Post
-          title={post.frontmatter.title}
-          date={post.frontmatter.date}
-          content={post.html}
-        />
-      </Section>
+      <Dropdown path={post.fields.path} />
+      <Post
+        title={post.frontmatter.title}
+        date={post.frontmatter.date}
+        content={post.html}
+      />
     </Layout>
   )
 }

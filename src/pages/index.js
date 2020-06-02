@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-import { Layout, Section } from "../layouts/home"
+import Layout from "../layouts/home"
 import Socials from "../components/socials"
 import SEO from "../components/seo"
 
@@ -38,21 +38,19 @@ export default function Index() {
   return (
     <Layout>
       <SEO path="/" />
-      <Section>
-        <div className="columns">
-          <div className="column content">{sectionsView[0]}</div>
-          <div className="column">
-            <Socials
-              github={github}
-              twitter={twitter}
-              linkedin={linkedin}
-              email={email}
-            />
-          </div>
+      <div className="columns">
+        <div className="column content">{sectionsView[0]}</div>
+        <div className="column">
+          <Socials
+            github={github}
+            twitter={twitter}
+            linkedin={linkedin}
+            email={email}
+          />
         </div>
-      </Section>
+      </div>
       {sectionsView.slice(1).map((section, index) => (
-        <Section key={index}>{section}</Section>
+        <div key={index}>{section}</div>
       ))}
     </Layout>
   )
