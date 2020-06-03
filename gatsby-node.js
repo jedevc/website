@@ -11,7 +11,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `path`,
-      value: path.join(`/src/${sourceInstanceName}`, relativePath),
+      value: path.join(`/content/${sourceInstanceName}`, relativePath),
     })
 
     if (sourceInstanceName == `posts`) {
