@@ -8,6 +8,7 @@ export default function SEO({ title, description, path }) {
       query {
         site {
           siteMetadata {
+            name
             title
             description
             siteUrl
@@ -56,8 +57,8 @@ export default function SEO({ title, description, path }) {
   return (
     <Helmet
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      defaultTitle={site.siteMetadata.title}
+      titleTemplate={`${site.siteMetadata.name} | %s`}
+      defaultTitle={site.siteMetadata.name}
       meta={metas}
       link={links}
       htmlAttributes={{
