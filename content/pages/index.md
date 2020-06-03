@@ -1,3 +1,7 @@
+---
+template: index
+---
+
 # whoami
 
 Hey there, I'm Justin! I also go as @jedevc in online places, a random

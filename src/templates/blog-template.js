@@ -29,7 +29,7 @@ export default function Blog({ data }) {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fields: { type: { eq: "posts" } } }
+      filter: { fields: { type: { eq: "post" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

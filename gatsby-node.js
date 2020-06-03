@@ -8,13 +8,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     let slug = createFilePath({ node, getNode })
     createNodeField({ node, name: `type`, value: sourceInstanceName })
+
+    // FIXME: adding the 's' at the end is kind of a hacky solution as it
+    // requires that the sourceInstanceName is the same as the directory name
     createNodeField({
       node,
       name: `path`,
-      value: path.join(`/content/${sourceInstanceName}`, relativePath),
+      value: path.join(`/content/${sourceInstanceName}s`, relativePath),
     })
 
-    if (sourceInstanceName == `posts`) {
+    if (sourceInstanceName == `post`) {
       createNodeField({ node, name: `slug`, value: path.join(`blog`, slug) })
     } else {
       createNodeField({ node, name: `slug`, value: slug })
@@ -39,6 +42,9 @@ exports.createPages = async ({ graphql, actions }) => {
               type
               slug
             }
+            frontmatter {
+              template
+            }
           }
         }
       }
@@ -48,21 +54,8 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     let { slug, type } = node.fields
 
-    let component
-    switch (type) {
-      case "pages":
-        if (slug == "/") {
-          component = path.resolve(`./src/templates/index-template.js`)
-        } else {
-          component = path.resolve(`./src/templates/page-template.js`)
-        }
-        break
-      case "posts":
-        component = path.resolve(`./src/templates/post-template.js`)
-        break
-      default:
-        return
-    }
+    let template = node.frontmatter.template ? node.frontmatter.template : type
+    let component = path.resolve(`./src/templates/${template}-template.js`)
 
     createPage({
       path: slug,
