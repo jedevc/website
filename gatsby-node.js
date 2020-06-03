@@ -6,36 +6,30 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const { sourceInstanceName, relativePath } = getNode(node.parent)
 
-    let slug
-    switch (sourceInstanceName) {
-      case `pages`:
-        slug = createFilePath({ node, getNode })
-        createNodeField({ node, name: `type`, value: `page` })
-        createNodeField({ node, name: `slug`, value: slug })
-        createNodeField({
-          node,
-          name: `path`,
-          value: path.join(`/src/pages`, relativePath),
-        })
-        break
-      case `posts`:
-        slug = createFilePath({ node, getNode, basePath: `posts/` })
-        createNodeField({ node, name: `type`, value: `post` })
-        createNodeField({ node, name: `slug`, value: path.join(`/blog`, slug) })
-        createNodeField({
-          node,
-          name: `path`,
-          value: path.join(`/src/posts`, relativePath),
-        })
-        break
-      default:
-        return
+    let slug = createFilePath({ node, getNode })
+    createNodeField({ node, name: `type`, value: sourceInstanceName })
+    createNodeField({
+      node,
+      name: `path`,
+      value: path.join(`/src/${sourceInstanceName}`, relativePath),
+    })
+
+    if (sourceInstanceName == `posts`) {
+      createNodeField({ node, name: `slug`, value: path.join(`blog`, slug) })
+    } else {
+      createNodeField({ node, name: `slug`, value: slug })
     }
   }
 }
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
+  createPage({
+    path: '/blog',
+    component: path.resolve('./src/templates/blog-template.js')
+  });
+
   const result = await graphql(`
     query {
       allMarkdownRemark {
@@ -56,15 +50,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
     let component
     switch (type) {
-      case "page":
+      case "pages":
         if (slug == "/") {
-          component = path.resolve(`./src/templates/index.js`)
+          component = path.resolve(`./src/templates/index-template.js`)
         } else {
-          component = path.resolve(`./src/templates/page.js`)
+          component = path.resolve(`./src/templates/page-template.js`)
         }
         break
-      case "post":
-        component = path.resolve(`./src/templates/post.js`)
+      case "posts":
+        component = path.resolve(`./src/templates/post-template.js`)
         break
       default:
         return
