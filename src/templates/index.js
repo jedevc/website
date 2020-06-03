@@ -1,29 +1,11 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../layouts/home"
 import Socials from "../components/socials"
 import SEO from "../components/seo"
 
-export default function Index() {
-  const data = useStaticQuery(graphql`
-    query IndexQuery {
-      site {
-        siteMetadata {
-          social {
-            github
-            twitter
-            linkedin
-            email
-          }
-        }
-      }
-      markdownRemark(fields: { type: { eq: "data" }, name: { eq: "index" } }) {
-        html
-      }
-    }
-  `)
-
+export default function Index({ data }) {
   const { github, twitter, linkedin, email } = data.site.siteMetadata.social
   const sections = data.markdownRemark.html.split("<hr>")
 
@@ -55,3 +37,29 @@ export default function Index() {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      excerpt
+      frontmatter {
+        title
+      }
+      fields {
+        slug
+        path
+      }
+    }
+    site {
+      siteMetadata {
+        social {
+          github
+          twitter
+          linkedin
+          email
+        }
+      }
+    }
+  }
+`

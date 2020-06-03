@@ -5,7 +5,7 @@ import Layout from "../layouts/basic"
 import SEO from "../components/seo"
 import Dropdown from "../components/dropdown"
 
-export default function BlogPost({ data }) {
+export default function Page({ data }) {
   const page = data.markdownRemark
 
   return (
