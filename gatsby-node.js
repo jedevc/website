@@ -1,21 +1,20 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const basePath = process.cwd()
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
-    const { sourceInstanceName, relativePath } = getNode(node.parent)
+    const { sourceInstanceName, absolutePath } = getNode(node.parent)
 
     let slug = createFilePath({ node, getNode })
     createNodeField({ node, name: `type`, value: sourceInstanceName })
 
-    // FIXME: adding the 's' at the end is kind of a hacky solution as it
-    // requires that the sourceInstanceName is the same as the directory name
-    createNodeField({
-      node,
-      name: `path`,
-      value: path.join(`/content/${sourceInstanceName}s`, relativePath),
-    })
+    if (absolutePath.startsWith(basePath)) {
+      const relativePath = absolutePath.slice(basePath.length)
+      createNodeField({ node, name: `path`, value: relativePath })
+    }
 
     if (sourceInstanceName == `post`) {
       createNodeField({ node, name: `slug`, value: path.join(`blog`, slug) })
