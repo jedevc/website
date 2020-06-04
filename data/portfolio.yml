@@ -1,0 +1,68 @@
+- title: Work
+  items:
+    - name: PA Solutions
+      subname: Front-end dev
+      link: https://progressiveaccess.com
+      text: >
+        Designed and created a new JAMStack website to represent the face of
+        the company.
+      image: portfolio/pa.png
+    - name: ARM
+      subname: Firmware Intern
+      link: https://arm.com
+      points:
+        - Implemented support for upcoming v8 security features in firmware.
+        - Improved build processes and tests.
+      image: portfolio/arm.png
+    - name: Context IS
+      subname: Brand Ambassador
+      link: https://www.contextis.com/
+      text: >
+        Represented the company to students at my University, and attended
+        conferences to interact with potential hires.
+      image: portfolio/context.png
+- title: Events
+  items:
+    - name: WhatTheCTF 2020
+      link: https://afnom.net/wtctf20/
+      text: >
+        Built new challenges, organized infrastructure and hosting, and
+        established web presence for the event's second iteration.
+      image: portfolio/wtctf.png
+    - name: HackTheMidlands 4.0
+      link: https://hackthemidlands.com/
+      text: >
+        Built a CTF from scratch, designed and deployed a suite of web
+        applications, and provided on-the-day support to users, organizers
+        and sponsors.
+      image: portfolio/htm.png
+    - name: SILM CTF 2019
+      link: https://silm-school.inria.fr/ctf/
+      text: >
+        Created and adapted challenges and managed infrastructure at a CTF
+        for a PhD summer school run by INRIA.
+      image: portfolio/silm.png
+    - name: WhatTheCTF 2019
+      link: https://afnom.net/wtctf19/
+      text: >
+        Built challenges for and set up hosting for a student-led CTF
+        competition.
+      image: portfolio/wtctf.png
+- title: Projects
+  items:
+    - name: AppArea
+      link: https://apparea.dev
+      text: >
+        Cast your localhost apps onto the internet and share them with the
+        world!
+      image: portfolio/apparea.png
+    - name: bhamcal
+      link: https://github.com/jedevc/bhamcal
+      text: >
+        A timetable extractor for University of Birmingham.
+      image: portfolio/bhamcal.png
+    - name: mafs
+      link: https://github.com/jedevc/mafs
+      text: >
+        Quickly conjure up virtual filesystems!
+      image: portfolio/mafs.png

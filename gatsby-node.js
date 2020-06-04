@@ -32,6 +32,11 @@ exports.createPages = async ({ graphql, actions }) => {
     component: path.resolve('./src/templates/blog-template.js')
   });
 
+  createPage({
+    path: '/portfolio',
+    component: path.resolve('./src/templates/portfolio-template.js')
+  });
+
   const result = await graphql(`
     query {
       allMarkdownRemark {
