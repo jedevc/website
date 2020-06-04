@@ -1,6 +1,10 @@
 ---
 title: "Virtual Filesystems"
 date: 2018-12-13
+description: >
+  Super easy and beginner friendly tutorial on how to quickly and easily use
+  Python and FUSE to build virtual filesystems! A really easy way to get
+  stuck into filesystem programming.
 ---
 
 Over the past few months, I've been learning quite a bit about virtual

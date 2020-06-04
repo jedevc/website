@@ -1,6 +1,9 @@
 ---
-title: "Tutorial - Making a Raspberry Pi Wifi Booster"
+title: "Tutorial - Making a Raspberry Pi WiFi Booster"
 date: 2018-11-18
+description: >
+  Learn how to create a quick and easy WiFi booster from scratch using a
+  Raspberry Pi!
 ---
 
 So, the WiFi at my flat sucks. And has done for several weeks. In essence, the

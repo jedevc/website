@@ -6,18 +6,18 @@ import { PostPreview } from "../components/post"
 import SEO from "../components/seo"
 
 export default function Blog({ data }) {
-  const { edges } = data.allMarkdownRemark
+  const { nodes } = data.allMarkdownRemark
 
   return (
     <Layout>
       <SEO title="Blog" path="/blog" />
       <div>
-        {edges.map(({ node }) => (
+        {nodes.map(node => (
           <Link key={node.id} to={node.fields.slug}>
             <PostPreview
               title={node.frontmatter.title}
               date={node.frontmatter.date}
-              summary={node.excerpt}
+              summary={node.frontmatter.description || node.excerpt}
             />
           </Link>
         ))}
@@ -32,17 +32,16 @@ export const query = graphql`
       filter: { fields: { type: { eq: "post" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 240)
-          frontmatter {
-            title
-            date
-          }
-          fields {
-            slug
-          }
+      nodes {
+        id
+        excerpt(pruneLength: 240)
+        frontmatter {
+          title
+          description
+          date
+        }
+        fields {
+          slug
         }
       }
     }

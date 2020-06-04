@@ -1,6 +1,8 @@
 ---
 title: "D-CTF secret writeup"
 date: 2019-09-09
+description: >
+  Writeup for the "secret" challenge from D-CTF.
 ---
 
 So, this last weekend, I took part in D-CTF with a few friends from

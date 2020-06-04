@@ -1,6 +1,9 @@
 ---
 title: "Aston Hack"
 date: 2018-11-12
+description: >
+  Another hackathon writeup, this time from Aston Hack. And also how I built
+  a virtual theremin using the Web Audio API and Nintendo Joycons.
 ---
 
 Following last week's hackathon at Hack the Midlands, this last weekend I went

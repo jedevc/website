@@ -1,6 +1,10 @@
 ---
 title: "3D printing data"
 date: 2019-02-12
+description: >
+  Hackathon writeup from HackSurrey. Pretty much just a technical writeup of
+  how we hacked together a way to 3d print arbitrary data using hashes,
+  factoradic bases, and of course blockchain.
 ---
 
 Edit: I now have a more complete writeup [here][writeup] if you are interested

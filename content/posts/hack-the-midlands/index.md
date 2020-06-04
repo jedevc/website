@@ -1,6 +1,8 @@
 ---
 title: "Hack the Midlands"
 date: 2018-11-06
+description: >
+  What I learnt from my first hackathon experience at HackTheMidlands.
 ---
 
 This last weekend, I went to [Hack the Midlands][hack the midlands].

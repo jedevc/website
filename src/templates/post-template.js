@@ -10,11 +10,13 @@ import Dropdown from "../components/dropdown"
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
 
+  const description = post.frontmatter.description || post.excerpt
+
   return (
     <Layout>
       <SEO
         title={post.frontmatter.title}
-        description={post.excerpt}
+        description={description}
         path={post.fields.slug}
       />
       <Dropdown path={post.fields.path} />
@@ -34,6 +36,7 @@ export const query = graphql`
       excerpt
       frontmatter {
         title
+        description
         date
       }
       fields {

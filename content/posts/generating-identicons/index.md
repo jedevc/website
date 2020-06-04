@@ -1,6 +1,9 @@
 ---
 title: "Generating identicons"
 date: 2018-11-02
+description: >
+  Ever wondered how to generate github-style identicons? Learn the algorithm
+  so you can code your own!
 ---
 
 For some time, I've been fascinated with github identicons.
