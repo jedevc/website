@@ -61,6 +61,11 @@
       text: >
         A timetable extractor for University of Birmingham.
       image: portfolio/bhamcal.png
+    - name: CSS website
+      link: https://github.com/CSSUoB/cssuob.github.io
+      text: >
+        Custom designed website for my University's Computer Science Society.
+      image: portfolio/css.png
     - name: mafs
       link: https://github.com/jedevc/mafs
       text: >
