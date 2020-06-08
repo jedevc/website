@@ -17,7 +17,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     if (sourceInstanceName == `post`) {
-      createNodeField({ node, name: `slug`, value: path.join(`blog`, slug) })
+      createNodeField({ node, name: `slug`, value: path.join(`/blog`, slug) })
     } else {
       createNodeField({ node, name: `slug`, value: slug })
     }
