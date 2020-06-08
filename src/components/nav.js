@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import { FaGithub } from "react-icons/fa"
 
-export default function Nav() {
+export default function Nav({ sticky }) {
   const [active, setActive] = useState(false)
 
   const data = useStaticQuery(graphql`
@@ -35,7 +35,7 @@ export default function Nav() {
   }
 
   return (
-    <NavBar>
+    <NavBar sticky={sticky}>
       <NavBrand title={display} onToggle={handleToggle} />
       <NavMenu active={active}>
         <NavStart items={items} />
@@ -57,9 +57,18 @@ export default function Nav() {
   )
 }
 
-function NavBar({ children }) {
+function NavBar({ children, sticky }) {
+  useLayoutEffect(() => {
+    if (sticky) {
+      document.body.classList.add("has-navbar-fixed-top")
+      return () => {
+        document.body.classList.remove("has-navbar-fixed-top")
+      }
+    }
+  }, [sticky])
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${sticky ? "is-fixed-top has-shadow" : ""}`}>
       <div className="container">{children}</div>
     </nav>
   )

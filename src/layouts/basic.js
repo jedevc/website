@@ -13,7 +13,7 @@ export default function Full({ children }) {
 export function Layout({ children }) {
   return (
     <>
-      <Nav />
+      <Nav sticky={true} />
 
       {children}
     </>
