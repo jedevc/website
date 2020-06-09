@@ -40,7 +40,7 @@ export default function Nav({ sticky }) {
 
 function NavBar({ children, sticky }) {
   return (
-    <nav className={`navbar ${sticky ? "has-shadow is-sticky" : ""}`}>
+    <nav className={`navbar ${sticky ? "has-shadow is-sticky-custom" : ""}`}>
       <div className="container">{children}</div>
     </nav>
   )
@@ -55,7 +55,7 @@ function NavBrand({ title, onToggle }) {
         </span>
       </Link>
 
-      <button className="navbar-burger is-not-button" onClick={onToggle}>
+      <button className="navbar-burger is-not-button-custom" onClick={onToggle}>
         <span></span>
         <span></span>
         <span></span>

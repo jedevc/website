@@ -4,10 +4,10 @@
 
 $grid-gap: 1rem;
 
-.grid {
+.grid-custom {
   display: grid;
   
-  .grid-item {
+  .grid-item-custom {
     padding-left: $grid-gap / 2;
     padding-right: $grid-gap / 2;
     padding-top: $grid-gap / 2;
@@ -21,19 +21,19 @@ $grid-gap: 1rem;
 }
 
 @include mobile {
-  .grid {
+  .grid-custom {
     grid-template-columns: 1fr;
   }
 }
 
 @include tablet {
-  .grid {
+  .grid-custom {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @include desktop {
-  .grid {
+  .grid-custom {
     grid-template-columns: repeat(3, 1fr);
   }
 }

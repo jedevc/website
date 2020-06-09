@@ -24,9 +24,9 @@ function PortfolioSection({ title, items }) {
     <>
       <h1 className="title">{title}</h1>
 
-      <div className="grid">
+      <div className="grid-custom">
         {items.map((item, index) => (
-          <div key={index} className="grid-item">
+          <div key={index} className="grid-item-custom">
             <PortfolioItem {...item} />
           </div>
         ))}
