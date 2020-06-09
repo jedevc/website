@@ -80,11 +80,11 @@ function NavBrand({ title, onToggle }) {
         </span>
       </Link>
 
-      <span className="navbar-burger" onClick={onToggle}>
+      <button className="navbar-burger is-not-button" onClick={onToggle}>
         <span></span>
         <span></span>
         <span></span>
-      </span>
+      </button>
     </div>
   )
 }
