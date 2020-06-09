@@ -1,0 +1,8 @@
+nav[data-navbar-sticky="child"] {
+  @extend .is-fixed-top;
+  @extend .has-shadow;
+}
+
+body[data-navbar-sticky="parent"] {
+  @extend .has-navbar-fixed-top;
+}

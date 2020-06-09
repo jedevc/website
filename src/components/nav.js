@@ -1,5 +1,6 @@
-import React, { useLayoutEffect } from "react"
+import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import { Helmet } from "react-helmet"
 
 import useClickToggle from "../hooks/useClickToggle"
 
@@ -39,19 +40,15 @@ export default function Nav({ sticky }) {
 }
 
 function NavBar({ children, sticky }) {
-  useLayoutEffect(() => {
-    if (sticky) {
-      document.body.classList.add("has-navbar-fixed-top")
-      return () => {
-        document.body.classList.remove("has-navbar-fixed-top")
-      }
-    }
-  }, [sticky])
-
   return (
-    <nav className={`navbar ${sticky ? "is-fixed-top has-shadow" : ""}`}>
-      <div className="container">{children}</div>
-    </nav>
+    <>
+      <Helmet
+        bodyAttributes={{ "data-navbar-sticky": sticky ? "parent" : "" }}
+      />
+      <nav className="navbar" data-navbar-sticky={sticky ? "child" : ""}>
+        <div className="container">{children}</div>
+      </nav>
+    </>
   )
 }
 
