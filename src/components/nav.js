@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react"
+import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import useClickToggle from "../hooks/useClickToggle"

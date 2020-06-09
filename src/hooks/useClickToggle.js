@@ -19,5 +19,5 @@ export default function useClickToggle() {
     }
   }, [])
 
-  return [active, handleClick] 
+  return [active, handleClick]
 }
