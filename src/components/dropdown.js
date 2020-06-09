@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { FaAngleDown } from "react-icons/fa"
 
+import useClickToggle from "../hooks/useClickToggle"
+
 export default function Dropdown({ path }) {
-  const [active, setActive] = useState(false)
+  const [clicked, handleClick] = useClickToggle()
 
   const data = useStaticQuery(graphql`
     query DropDownQuery {
@@ -32,22 +34,6 @@ export default function Dropdown({ path }) {
     )
   }
 
-  const handleClick = event => {
-    setActive(!active)
-    event.stopPropagation()
-    event.nativeEvent.stopImmediatePropagation()
-  }
-
-  useEffect(() => {
-    const onExternalClick = () => {
-      setActive(false)
-    }
-    document.addEventListener("click", onExternalClick)
-    return () => {
-      document.removeEventListener("click", onExternalClick)
-    }
-  }, [])
-
   if (items.length === 0) {
     return <></>
   }
@@ -55,7 +41,7 @@ export default function Dropdown({ path }) {
   return (
     <div
       className={`dropdown is-right is-pulled-right ${
-        active ? "is-active" : ""
+        clicked ? "is-active" : ""
       }`}
     >
       <div className="dropdown-trigger">

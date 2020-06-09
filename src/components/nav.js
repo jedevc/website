@@ -1,10 +1,11 @@
-import React, { useState, useLayoutEffect } from "react"
+import React, { useLayoutEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-
 import { FaGithub } from "react-icons/fa"
 
+import useClickToggle from "../hooks/useClickToggle"
+
 export default function Nav({ sticky }) {
-  const [active, setActive] = useState(false)
+  const [active, handleActivate] = useClickToggle()
 
   const data = useStaticQuery(graphql`
     query NavQuery {
@@ -30,13 +31,9 @@ export default function Nav({ sticky }) {
   const { display, social } = data.site.siteMetadata
   const items = data.allNavYaml.edges.map(edge => edge.node)
 
-  const handleToggle = () => {
-    setActive(!active)
-  }
-
   return (
     <NavBar sticky={sticky}>
-      <NavBrand title={display} onToggle={handleToggle} />
+      <NavBrand title={display} onToggle={handleActivate} />
       <NavMenu active={active}>
         <NavStart items={items} />
         <NavEnd>
