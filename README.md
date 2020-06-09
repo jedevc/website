@@ -1,6 +1,6 @@
-# jedevc.com
+# My personal website
 
-Source code for my personal website.
+Source code for my personal website at <https://jedevc.com>.
 
 ## Development
 
