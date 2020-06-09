@@ -1,6 +1,5 @@
 import React, { useLayoutEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { FaGithub } from "react-icons/fa"
 
 import useClickToggle from "../hooks/useClickToggle"
 
@@ -12,9 +11,6 @@ export default function Nav({ sticky }) {
       site {
         siteMetadata {
           display
-          social {
-            github
-          }
         }
       }
 
@@ -28,7 +24,7 @@ export default function Nav({ sticky }) {
       }
     }
   `)
-  const { display, social } = data.site.siteMetadata
+  const { display } = data.site.siteMetadata
   const items = data.allNavYaml.edges.map(edge => edge.node)
 
   return (
@@ -36,19 +32,7 @@ export default function Nav({ sticky }) {
       <NavBrand title={display} onToggle={handleActivate} />
       <NavMenu active={active}>
         <NavStart items={items} />
-        <NavEnd>
-          {social.github && (
-            <a
-              className="button is-dark"
-              href={`https://github.com/${social.github}`}
-            >
-              <span className="icon">
-                <FaGithub />
-              </span>
-              <span>GitHub</span>
-            </a>
-          )}
-        </NavEnd>
+        <NavEnd></NavEnd>
       </NavMenu>
     </NavBar>
   )
