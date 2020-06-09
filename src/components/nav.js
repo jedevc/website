@@ -39,17 +39,8 @@ export default function Nav({ sticky }) {
 }
 
 function NavBar({ children, sticky }) {
-  useLayoutEffect(() => {
-    if (sticky) {
-      document.body.classList.add("has-navbar-fixed-top")
-      return () => {
-        document.body.classList.remove("has-navbar-fixed-top")
-      }
-    }
-  }, [sticky])
-
   return (
-    <nav className={`navbar ${sticky ? "is-fixed-top has-shadow" : ""}`}>
+    <nav className={`navbar ${sticky ? "has-shadow is-sticky" : ""}`}>
       <div className="container">{children}</div>
     </nav>
   )
