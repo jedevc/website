@@ -2,7 +2,7 @@ import React from "react"
 
 export function PostPreview({ title, date, summary }) {
   return (
-    <div className="box" style={{ marginBottom: "1rem" }}>
+    <div className="box mb-4">
       <PostHeader title={title} date={date} />
       <p>{summary}</p>
     </div>
@@ -21,13 +21,10 @@ export function Post({ title, date, content }) {
 function PostHeader({ title, date }) {
   return (
     <>
-      <h1 className="title" style={{ marginBottom: "0.6rem" }}>
+      <h1 className="title mb-2">
         {title}
       </h1>
-      <div
-        className="has-text-grey is-size-7"
-        style={{ marginBottom: "1.2rem" }}
-      >
+      <div className="has-text-grey is-size-7 mb-5">
         <time dateTime={date}>{formatDate(date)}</time>
       </div>
     </>

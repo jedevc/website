@@ -50,7 +50,7 @@ function NavBrand({ title, onToggle }) {
   return (
     <div className="navbar-brand">
       <Link to="/" className="navbar-item">
-        <span className="is-size-4" style={{ paddingBottom: "0.5rem" }}>
+        <span className="is-size-4 pb-2">
           {title}
         </span>
       </Link>
