@@ -21,12 +21,12 @@ export function Post({ title, date, content }) {
 function PostHeader({ title, date }) {
   return (
     <>
-      <h1 className="title mb-2">
-        {title}
-      </h1>
-      <div className="has-text-grey is-size-7 mb-5">
-        <time dateTime={date}>{formatDate(date)}</time>
-      </div>
+      {title && <h1 className="title mb-2">{title}</h1>}
+      {date && (
+        <div className="has-text-grey is-size-7 mb-5">
+          <time dateTime={date}>{formatDate(date)}</time>
+        </div>
+      )}
     </>
   )
 }

@@ -50,9 +50,7 @@ function NavBrand({ title, onToggle }) {
   return (
     <div className="navbar-brand">
       <Link to="/" className="navbar-item">
-        <span className="is-size-4 pb-2">
-          {title}
-        </span>
+        <span className="is-size-4 pb-2">{title}</span>
       </Link>
 
       <button className="navbar-burger is-not-button-custom" onClick={onToggle}>

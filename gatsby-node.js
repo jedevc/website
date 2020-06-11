@@ -96,6 +96,16 @@ exports.createSchemaCustomization = ({ actions }) => {
       linkedin: String
       email: String
     }
+
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter!
+    }
+    type Frontmatter {
+      title: String
+      description: String
+      date: String
+      hidden: Boolean
+    }
   `
   createTypes(typeDefs)
 }

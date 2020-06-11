@@ -18,7 +18,9 @@ export default function Page({ data }) {
         path={page.fields.slug}
       />
       <Dropdown path={page.fields.path} />
-      <h1 className="title">{page.frontmatter.title}</h1>
+      {page.frontmatter.title && (
+        <h1 className="title">{page.frontmatter.title}</h1>
+      )}
       <div
         className="content"
         dangerouslySetInnerHTML={{ __html: page.html }}
