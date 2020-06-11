@@ -6,7 +6,7 @@ description: >
 ---
 
 So, this last weekend, I took part in D-CTF with a few friends from
-[AFNOM](afnom.net). One of the challenges I solved was **secret** and I got a
+[AFNOM](https://afnom.net). One of the challenges I solved was **secret** and I got a
 few requests to write it up, so I decided to put it here so that everyone
 could find it.
 
