@@ -9,6 +9,9 @@ export default function SEO({ title, description, path }) {
         site {
           siteMetadata {
             name
+            author {
+              name
+            }
             title
             description
             siteUrl
@@ -37,6 +40,18 @@ export default function SEO({ title, description, path }) {
     {
       property: `og:type`,
       content: `website`,
+    },
+    {
+      property: `twitter:title`,
+      content: metaTitle,
+    },
+    {
+      property: `twitter:description`,
+      content: metaDescription,
+    },
+    {
+      property: `twitter:creator`,
+      content: site.siteMetadata.author.name,
     },
   ]
 
