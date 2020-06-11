@@ -28,12 +28,12 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   createPage({
-    path: `/blog`,
+    path: `/blog/`,
     component: path.resolve(`./src/templates/blog-template.js`),
   })
 
   createPage({
-    path: `/portfolio`,
+    path: `/portfolio/`,
     component: path.resolve(`./src/templates/portfolio-template.js`),
   })
 

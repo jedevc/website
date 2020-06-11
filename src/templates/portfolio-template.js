@@ -11,7 +11,7 @@ export default function Portfolio({ data }) {
 
   return (
     <Layout>
-      <SEO title="Portfolio" path="/portfolio" />
+      <SEO title="Portfolio" path="/portfolio/" />
       {sections.map((section, index) => (
         <PortfolioSection key={index} {...section} />
       ))}

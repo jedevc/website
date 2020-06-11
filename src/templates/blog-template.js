@@ -10,7 +10,7 @@ export default function Blog({ data }) {
 
   return (
     <Layout>
-      <SEO title="Blog" path="/blog" />
+      <SEO title="Blog" path="/blog/" />
       <div>
         {nodes.map(node => (
           <Link key={node.id} to={node.fields.slug}>
