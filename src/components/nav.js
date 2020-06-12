@@ -29,7 +29,7 @@ export default function Nav({ sticky }) {
 
   return (
     <NavBar sticky={sticky}>
-      <NavBrand title={display} onToggle={handleActivate} />
+      <NavBrand title={display} active={active} onToggle={handleActivate} />
       <NavMenu active={active}>
         <NavStart items={items} />
         <NavEnd></NavEnd>
@@ -46,14 +46,19 @@ function NavBar({ children, sticky }) {
   )
 }
 
-function NavBrand({ title, onToggle }) {
+function NavBrand({ title, active, onToggle }) {
   return (
     <div className="navbar-brand">
       <Link to="/" className="navbar-item">
         <span className="is-size-4 pb-2">{title}</span>
       </Link>
 
-      <button className="navbar-burger is-not-button-custom" onClick={onToggle}>
+      <button
+        className={`navbar-burger is-not-button-custom ${
+          active ? "is-active" : ""
+        }`}
+        onClick={onToggle}
+      >
         <span></span>
         <span></span>
         <span></span>
