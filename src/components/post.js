@@ -1,4 +1,5 @@
 import React from "react"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export function PostPreview({ title, date, summary }) {
   return (
@@ -13,7 +14,9 @@ export function Post({ title, date, content }) {
   return (
     <>
       <PostHeader title={title} date={date} />
-      <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="content">
+        <MDXRenderer>{content}</MDXRenderer>
+      </div>
     </>
   )
 }

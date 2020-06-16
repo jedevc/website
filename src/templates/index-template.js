@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../layouts/home"
 import Socials from "../components/socials"
@@ -7,21 +8,18 @@ import SEO from "../components/seo"
 
 export default function Index({ data }) {
   const { github, twitter, linkedin, email } = data.site.siteMetadata.social
-  const sections = data.markdownRemark.html.split("<hr>")
-
-  const sectionsView = sections.map((section, index) => (
-    <div
-      key={index}
-      className="content"
-      dangerouslySetInnerHTML={{ __html: section }}
-    />
-  ))
+  const { body, frontmatter } = data.mdx
 
   return (
     <Layout>
       <SEO path="/" />
       <div className="columns">
-        <div className="column content">{sectionsView[0]}</div>
+        <div className="column content">
+          <h2 className="title is-family-monospace">whoami</h2>
+          {frontmatter.personal.split('\n').map(part => (
+            <p>{part}</p>
+          ))}
+        </div>
         <div className="column">
           <Socials
             github={github}
@@ -31,20 +29,21 @@ export default function Index({ data }) {
           />
         </div>
       </div>
-      {sectionsView.slice(1).map((section, index) => (
-        <div key={index}>{section}</div>
-      ))}
+      <div className="content">
+        <MDXRenderer>{body}</MDXRenderer>
+      </div>
     </Layout>
   )
 }
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       excerpt
       frontmatter {
         title
+        personal
       }
       fields {
         slug

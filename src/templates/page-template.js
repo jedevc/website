@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../layouts/basic"
 import SEO from "../components/seo"
 import Dropdown from "../components/dropdown"
 
 export default function Page({ data }) {
-  const page = data.markdownRemark
+  const page = data.mdx
 
   const description = page.frontmatter.description || page.excerpt
 
@@ -21,18 +22,17 @@ export default function Page({ data }) {
       {page.frontmatter.title && (
         <h1 className="title">{page.frontmatter.title}</h1>
       )}
-      <div
-        className="content"
-        dangerouslySetInnerHTML={{ __html: page.html }}
-      />
+      <div className="content">
+        <MDXRenderer>{page.body}</MDXRenderer>
+      </div>
     </Layout>
   )
 }
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       excerpt
       frontmatter {
         title

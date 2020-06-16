@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import Dropdown from "../components/dropdown"
 
 export default function BlogPost({ data }) {
-  const post = data.markdownRemark
+  const post = data.mdx
 
   const description = post.frontmatter.description || post.excerpt
 
@@ -23,7 +23,7 @@ export default function BlogPost({ data }) {
       <Post
         title={post.frontmatter.title}
         date={post.frontmatter.date}
-        content={post.html}
+        content={post.body}
       />
     </Layout>
   )
@@ -31,8 +31,8 @@ export default function BlogPost({ data }) {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       excerpt
       frontmatter {
         title

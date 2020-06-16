@@ -6,7 +6,7 @@ import { PostPreview } from "../components/post"
 import SEO from "../components/seo"
 
 export default function Blog({ data }) {
-  const { nodes } = data.allMarkdownRemark
+  const { nodes } = data.allMdx
 
   return (
     <Layout>
@@ -28,7 +28,7 @@ export default function Blog({ data }) {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       filter: {
         fields: { type: { eq: "post" } }
         frontmatter: { hidden: { ne: true } }
