@@ -5,7 +5,7 @@ const basePath = process.cwd()
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const { sourceInstanceName, absolutePath } = getNode(node.parent)
 
     let slug = createFilePath({ node, getNode })
@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             fields {
@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     let { slug, type } = node.fields
 
     let template = node.frontmatter.template ? node.frontmatter.template : type
@@ -97,7 +97,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       email: String
     }
 
-    type MarkdownRemark implements Node {
+    type Mdx implements Node {
       frontmatter: Frontmatter!
     }
     type Frontmatter {
