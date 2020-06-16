@@ -1,6 +1,8 @@
 import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
+import MDXProvider from "../mdx"
+
 export function PostPreview({ title, date, summary }) {
   return (
     <div className="box mb-4">
@@ -15,7 +17,9 @@ export function Post({ title, date, content }) {
     <>
       <PostHeader title={title} date={date} />
       <div className="content">
-        <MDXRenderer>{content}</MDXRenderer>
+        <MDXProvider>
+          <MDXRenderer>{content}</MDXRenderer>
+        </MDXProvider>
       </div>
     </>
   )

@@ -3,8 +3,9 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../layouts/home"
-import Socials from "../components/socials"
+import MDXProvider from "../mdx"
 import SEO from "../components/seo"
+import Socials from "../components/socials"
 
 export default function Index({ data }) {
   const { github, twitter, linkedin, email } = data.site.siteMetadata.social
@@ -30,7 +31,9 @@ export default function Index({ data }) {
         </div>
       </div>
       <div className="content">
-        <MDXRenderer>{body}</MDXRenderer>
+        <MDXProvider>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
       </div>
     </Layout>
   )
