@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../layouts/basic"
+import MDXProvider from "../mdx"
 import SEO from "../components/seo"
 import Dropdown from "../components/dropdown"
 
@@ -23,7 +24,9 @@ export default function Page({ data }) {
         <h1 className="title">{page.frontmatter.title}</h1>
       )}
       <div className="content">
-        <MDXRenderer>{page.body}</MDXRenderer>
+        <MDXProvider>
+          <MDXRenderer>{page.body}</MDXRenderer>
+        </MDXProvider>
       </div>
     </Layout>
   )
