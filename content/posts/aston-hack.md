@@ -42,9 +42,9 @@ forwards, was to modify one of the existing drivers ([here][joycon driver]) to
 instead output motion sensor data instead of the joystick data (naturally).
 
 We finally got everything working and had an incredible demo to show off at the
-end (click to open in youtube).
+end.
 
-[![Demo video][demo video thumbnail]][demo video]
+https://www.youtube.com/watch?v=rGMdvvvoX68
 
 We all loved our project and had a great time building it. While building it,
 we had quite a few people stop by and ask what we were up to. We explained it,
@@ -63,6 +63,4 @@ github [here][project link].
 [aston hack]: https://astonhack.co.uk/
 [gamepad api]: https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API
 [joycon driver]: https://github.com/riking/joycon
-[demo video]: https://www.youtube.com/watch?v=rGMdvvvoX68
-[demo video thumbnail]: https://img.youtube.com/vi/rGMdvvvoX68/0.jpg
 [project link]: https://github.com/wrussell1999/aston-hack-2018
