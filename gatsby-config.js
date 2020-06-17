@@ -50,6 +50,7 @@ module.exports = {
         extensions: [`.md`, `.mdx`],
         gatsbyRemarkPlugins: [
           {
+            // Also needs to be included in global plugins list
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 800,
@@ -65,6 +66,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-remark-images`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
