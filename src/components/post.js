@@ -40,10 +40,21 @@ function PostHeader({ title, date }) {
 
 function formatDate(dateString) {
   const date = new Date(dateString)
-  const options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }
-  return date.toLocaleDateString("en-GB", options)
+
+  // https://github.com/nodejs/node/issues/8500
+  // toLocaleDateString does not work prior to Node 13, and so doesn't work as
+  // intended on Netlify. So, instead of doing the real modern way, we can hack
+  // it manually.
+
+  // const options = {
+  //   day: "numeric",
+  //   month: "long",
+  //   year: "numeric",
+  // }
+  // return date.toLocaleDateString("en-GB", options)
+
+  const months = [
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+  ]
+  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
 }
