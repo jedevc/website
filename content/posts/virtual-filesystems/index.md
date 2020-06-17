@@ -23,7 +23,15 @@ According to [Wikipedia][wikipedia - file systems], a filesystem is a piece of
 software that "controls how data is stored and retrieved" on a physical storage
 medium. As you probably know, your main disk is split up into multiple
 partitions - each of these partitions will generally have a single filesystem
-on it<sup>[1](#footnote1)</sup>, so that programs can read and write to it.
+on it, so that programs can read and write to it.
+
+<Sidenote>
+
+But not always. Sometimes a single partition can contain multiple
+filesystems, such as when using LVM, or multiple partitions can contain a
+single filesystem, such as... when using LVM.
+
+</Sidenote>
 
 The point of filesystems is that while they may work differently under the
 hood, they all present the same interface. This means that you, as a user or
@@ -275,12 +283,6 @@ out to me at the email address on my Github profile - I'd love to hear your
 feedback.
 
 Until next time.
-
----
-
-<a name="footnote1">1</a>: But not always. Sometimes a single partition can
-contain multiple filesystems, such as when using LVM, or multiple partitions
-can contain a single filesystem, such as... when using LVM.
 
 [magicfs]: https://github.com/jedevc/mafs
 [wikipedia - ext3]: https://en.wikipedia.org/wiki/Ext3

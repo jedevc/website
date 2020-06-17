@@ -2,14 +2,12 @@ import React from "react"
 
 function make_message(classes) {
   return function Message({ children }) {
-      return (
-        <div class={`message ${classes ? classes : ""}`}>
-          <div class="message-body">
-            {children}
-          </div>
-        </div>
-      )
-    }
+    return (
+      <div className={`message is-small ${classes ? classes : ""}`}>
+        <div className="message-body">{children}</div>
+      </div>
+    )
+  }
 }
 
 export const Message = make_message()

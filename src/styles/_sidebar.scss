@@ -1,0 +1,18 @@
+.sidebar {
+  margin-bottom: 1em;
+}
+
+@include desktop {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: 0;
+
+    & > * {
+      position: absolute;
+      transform: translateY(-50%);
+      right: -32vw;
+      width: 30vw;
+    }
+  }
+}

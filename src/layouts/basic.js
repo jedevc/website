@@ -25,7 +25,7 @@ export function Section({ children }) {
     <section className="section">
       <div className="container">
         <div className="columns">
-          <div className="column is-three-quarters-desktop is-full-tablet">
+          <div className="column is-two-thirds-desktop is-full-tablet">
             {children}
           </div>
         </div>

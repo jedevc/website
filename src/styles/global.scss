@@ -7,6 +7,8 @@ $warning: #edf73b;
 $danger: #f42474;
 $navbar-burger-color: inherit;
 
+$size-7: 0.85rem;
+
 $section-padding: 2rem 1.5rem;
 
 @import "~bulma/bulma";
@@ -15,6 +17,7 @@ $section-padding: 2rem 1.5rem;
 @import "button";
 @import "nav";
 @import "grid";
+@import "sidebar";
 
 // avoid bulma and prism css conflicts
 // https://www.darraghoriordan.com/2019/01/20/bulma-prismjs-in-gatsby-css-conflicts/
