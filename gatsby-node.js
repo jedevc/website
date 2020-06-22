@@ -27,35 +27,76 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
+  // Blog listing
   createPage({
     path: `/blog/`,
     component: path.resolve(`./src/templates/blog-template.js`),
   })
 
+  // Portfolio
   createPage({
     path: `/portfolio/`,
     component: path.resolve(`./src/templates/portfolio-template.js`),
   })
 
-  const result = await graphql(`
-    query {
-      allMdx {
-        nodes {
-          fields {
-            type
-            slug
-          }
-          frontmatter {
-            template
+  // Post pages
+  const posts = (
+    await graphql(`
+      query {
+        allMdx(
+          filter: { fields: { type: { eq: "post" } } }
+          sort: { fields: [frontmatter___date], order: ASC }
+        ) {
+          nodes {
+            fields {
+              type
+              slug
+            }
+            frontmatter {
+              template
+            }
           }
         }
       }
-    }
-  `)
-
-  result.data.allMdx.nodes.forEach(node => {
+    `)
+  ).data.allMdx.nodes
+  posts.forEach((node, index) => {
     let { slug, type } = node.fields
 
+    let template = node.frontmatter.template ? node.frontmatter.template : type
+    let component = path.resolve(`./src/templates/${template}-template.js`)
+
+    createPage({
+      path: slug,
+      component: component,
+      context: {
+        slug: slug,
+        next: index < posts.length - 1 ? posts[index + 1].fields.slug : null,
+        prev: index > 0 ? posts[index - 1].fields.slug : null,
+      },
+    })
+  })
+
+  // Non-post pages
+  const others = (
+    await graphql(`
+      query {
+        allMdx(filter: { fields: { type: { ne: "post" } } }) {
+          nodes {
+            fields {
+              type
+              slug
+            }
+            frontmatter {
+              template
+            }
+          }
+        }
+      }
+    `)
+  ).data.allMdx.nodes
+  others.forEach(node => {
+    let { slug, type } = node.fields
     let template = node.frontmatter.template ? node.frontmatter.template : type
     let component = path.resolve(`./src/templates/${template}-template.js`)
 

@@ -17,8 +17,8 @@ export default function Index({ data }) {
       <div className="columns">
         <div className="column content">
           <h2 className="title is-family-monospace">whoami</h2>
-          {frontmatter.personal.split("\n").map(part => (
-            <p>{part}</p>
+          {frontmatter.personal.split("\n").map((part, index) => (
+            <p key={index}>{part}</p>
           ))}
         </div>
         <div className="column">
