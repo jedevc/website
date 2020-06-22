@@ -40,22 +40,20 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       allMdx {
-        edges {
-          node {
-            fields {
-              type
-              slug
-            }
-            frontmatter {
-              template
-            }
+        nodes {
+          fields {
+            type
+            slug
+          }
+          frontmatter {
+            template
           }
         }
       }
     }
   `)
 
-  result.data.allMdx.edges.forEach(({ node }) => {
+  result.data.allMdx.nodes.forEach(node => {
     let { slug, type } = node.fields
 
     let template = node.frontmatter.template ? node.frontmatter.template : type

@@ -15,17 +15,15 @@ export default function Nav({ sticky }) {
       }
 
       allNavYaml {
-        edges {
-          node {
-            name
-            link
-          }
+        nodes {
+          name
+          link
         }
       }
     }
   `)
   const { display } = data.site.siteMetadata
-  const items = data.allNavYaml.edges.map(edge => edge.node)
+  const items = data.allNavYaml.nodes
 
   return (
     <NavBar sticky={sticky}>
