@@ -45,7 +45,7 @@ export default function Dropdown({ path }) {
       }`}
     >
       <div className="dropdown-trigger">
-        <button className="button" onClick={handleClick}>
+        <button className="is-not-button-custom" onClick={handleClick}>
           <span className="icon is-small">
             <FaAngleDown />
           </span>

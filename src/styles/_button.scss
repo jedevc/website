@@ -1,5 +1,6 @@
 button.is-not-button-custom {
   background: none !important;
-  border: none;
+  border: none !important;
   padding: 0 !important;
+  cursor: pointer;
 }
