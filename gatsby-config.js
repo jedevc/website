@@ -18,7 +18,7 @@ module.exports = {
       github: `jedevc`,
       twitter: `jedevc`,
       linkedin: `jedevc`,
-      email: `contact@jedevc.com`,
+      email: `me@jedevc.com`,
     },
     github: `https://github.com/jedevc/website`,
   },
