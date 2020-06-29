@@ -12,6 +12,9 @@ export default function Portfolio({ data }) {
   return (
     <Layout>
       <SEO title="Portfolio" path="/portfolio/" />
+
+      <h1 className="title">My Portfolio</h1>
+
       {sections.map((section, index) => (
         <PortfolioSection key={index} {...section} />
       ))}
@@ -22,7 +25,7 @@ export default function Portfolio({ data }) {
 function PortfolioSection({ title, items }) {
   return (
     <>
-      <h1 className="title">{title}</h1>
+      <h2 className="title is-4">{title}</h2>
 
       <div className="grid-custom">
         {items.map((item, index) => (

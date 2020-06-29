@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { FaRss } from "react-icons/fa"
 
 import Layout from "../layouts/basic"
 import { PostPreview } from "../components/post"
@@ -11,6 +12,23 @@ export default function Blog({ data }) {
   return (
     <Layout>
       <SEO title="Blog" path="/blog/" />
+
+      <div className="is-pulled-right">
+        <a
+          href="/rss.xml"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button"
+        >
+          <span className="icon">
+            <FaRss />
+          </span>
+          <span>Feed</span>
+        </a>
+      </div>
+
+      <h1 className="title">My Blog</h1>
+
       <div>
         {nodes.map(node => (
           <Link key={node.id} to={node.fields.slug}>
