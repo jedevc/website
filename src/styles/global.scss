@@ -14,6 +14,17 @@ $section-padding: 2rem 1.5rem;
 @import "~bulma/bulma";
 @import "~prism-themes/themes/prism-ghcolors.css";
 
+html {
+  scroll-behavior: smooth;
+}
+
+.full-page-custom {
+  background-color: $white;
+
+  min-height: 100vh;
+  min-height: stretch;
+}
+
 @import "button";
 @import "nav";
 @import "grid";
