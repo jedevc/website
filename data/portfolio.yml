@@ -1,5 +1,11 @@
 - title: Work
   items:
+    - name: Pexip
+      subname: Software Intern
+      link: https://www.pexip.com
+      text: >
+        Introduced automated static analysis and fuzzing processes into CI.
+      image: portfolio/pexip.png
     - name: PA Solutions
       subname: Front-end dev
       link: https://progressiveaccess.com
