@@ -6,8 +6,8 @@ description: >
 ---
 
 Welcome! If you're looking for a project for over the weekend, or something a
-bit more tricky than your standard tutorial, or just looking to brush up a
-bit on your Go or Linux knowledge, this is the series for you!
+bit more tricky than your standard tutorial, or just trying to brush up on
+your Go or Linux knowledge, this is the series for you!
 
 In the next few posts, we're gonna build a classic UNIX-style shell -
 entirely from scratch. Why? Well, shells are at the core of how developers,
@@ -52,4 +52,3 @@ So without further ado, let's get stuck in!
 
 0. [Chapter 0](chapter-0) - The Correct Place to Start
 1. [Chapter 1](chapter-1)
-
