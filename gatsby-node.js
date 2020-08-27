@@ -54,6 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               template
+              hidden
             }
           }
         }
@@ -66,13 +67,30 @@ exports.createPages = async ({ graphql, actions }) => {
     let template = node.frontmatter.template ? node.frontmatter.template : type
     let component = path.resolve(`./src/templates/${template}-template.js`)
 
+    let nextPost
+    let prevPost
+    if (!node.frontmatter.hidden) {
+      for (let i = index + 1; i < posts.length; i++) {
+        if (!posts[i].frontmatter.hidden) {
+          nextPost = posts[i].fields.slug
+          break
+        }
+      }
+      for (let i = index - 1; i >= 0; i--) {
+        if (!posts[i].frontmatter.hidden) {
+          prevPost = posts[i].fields.slug
+          break
+        }
+      }
+    }
+
     createPage({
       path: slug,
       component: component,
       context: {
         slug: slug,
-        next: index < posts.length - 1 ? posts[index + 1].fields.slug : null,
-        prev: index > 0 ? posts[index - 1].fields.slug : null,
+        next: nextPost,
+        prev: prevPost,
       },
     })
   })
