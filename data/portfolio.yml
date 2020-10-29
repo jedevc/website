@@ -29,6 +29,19 @@
       image: portfolio/context.png
 - title: Events
   items:
+    - name: HackTheMidlands 5.0
+      link: https://hackthemidlands.com/
+      text: >
+        Built and deployed an improved, online CTF from scratch, covering
+        topics from digital forensics to binary analysis to web hacking.
+      image: portfolio/htm.png
+    - name: LOCKDONE-athon
+      link: https://lockd.one/
+      text: >
+        Created and themed a website for the LOCKDONE-athon as part of UoB's
+        Birmingham In Action campaign, and developed challenges for an
+        introduction to cyber-security CTF competition.
+      image: portfolio/lockdone.jpg
     - name: WhatTheCTF 2020
       link: https://afnom.net/wtctf20/
       text: >
