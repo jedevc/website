@@ -4,7 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../layouts/basic"
 import MDXProvider from "../mdx"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Dropdown from "../components/dropdown"
 
 export default function Page({ data }) {
@@ -14,7 +14,7 @@ export default function Page({ data }) {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={page.frontmatter.title}
         description={description}
         path={page.fields.slug}

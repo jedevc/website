@@ -1,17 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { FaLink } from "react-icons/fa"
 
 import Layout from "../layouts/basic"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 export default function Portfolio({ data }) {
   const sections = data.allPortfolioYaml.nodes
 
   return (
     <Layout>
-      <SEO title="Portfolio" path="/portfolio/" />
+      <Seo title="Portfolio" path="/portfolio/" />
 
       <h1 className="title">My Portfolio</h1>
 
@@ -40,6 +40,8 @@ function PortfolioSection({ title, items }) {
 }
 
 function PortfolioItem({ name, subname, link, image, text, points }) {
+  const cardImage = getImage(image);
+
   return (
     <div className="card">
       <div className="card-header">
@@ -55,7 +57,7 @@ function PortfolioItem({ name, subname, link, image, text, points }) {
       {image && (
         <div className="card-image">
           <figure className="image">
-            <Img fluid={image.childImageSharp.fluid} />
+            <GatsbyImage image={cardImage} />
           </figure>
         </div>
       )}
@@ -87,9 +89,10 @@ export const query = graphql`
           points
           image {
             childImageSharp {
-              fluid(maxWidth: 650, maxHeight: 325) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                width: 650
+                placeholder: BLURRED
+              )
             }
           }
         }

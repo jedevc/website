@@ -4,14 +4,14 @@ import { FaRss } from "react-icons/fa"
 
 import Layout from "../layouts/basic"
 import { PostPreview } from "../components/post"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 export default function Blog({ data }) {
   const { nodes } = data.allMdx
 
   return (
     <Layout>
-      <SEO title="Blog" path="/blog/" />
+      <Seo title="Blog" path="/blog/" />
 
       <div className="is-pulled-right">
         <a

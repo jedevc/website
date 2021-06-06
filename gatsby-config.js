@@ -126,6 +126,7 @@ module.exports = {
     `gatsby-remark-images`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-catch-links`,

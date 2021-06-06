@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../layouts/basic"
 
 import { Post } from "../components/post"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Dropdown from "../components/dropdown"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 
@@ -15,7 +15,7 @@ export default function BlogPost({ data }) {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={post.frontmatter.title}
         description={description}
         path={post.fields.slug}

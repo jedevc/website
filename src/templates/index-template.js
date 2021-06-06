@@ -4,7 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../layouts/home"
 import MDXProvider from "../mdx"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Socials from "../components/socials"
 
 export default function Index({ data }) {
@@ -13,7 +13,7 @@ export default function Index({ data }) {
 
   return (
     <Layout>
-      <SEO path="/" />
+      <Seo path="/" />
       <div className="columns">
         <div className="column content">
           <h2 className="title is-family-monospace">whoami</h2>
