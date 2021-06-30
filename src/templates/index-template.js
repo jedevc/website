@@ -40,7 +40,7 @@ export default function Index({ data }) {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       excerpt

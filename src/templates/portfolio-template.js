@@ -40,7 +40,7 @@ function PortfolioSection({ title, items }) {
 }
 
 function PortfolioItem({ name, subname, link, image, text, points }) {
-  const cardImage = getImage(image);
+  const cardImage = getImage(image)
 
   return (
     <div className="card">
@@ -89,10 +89,7 @@ export const query = graphql`
           points
           image {
             childImageSharp {
-              gatsbyImageData(
-                width: 650
-                placeholder: BLURRED
-              )
+              gatsbyImageData(width: 650, placeholder: BLURRED)
             }
           }
         }

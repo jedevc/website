@@ -54,7 +54,7 @@ export default function BlogPost({ data }) {
 }
 
 export const query = graphql`
-  query($slug: String!, $next: String, $prev: String) {
+  query ($slug: String!, $next: String, $prev: String) {
     post: mdx(fields: { slug: { eq: $slug } }) {
       body
       excerpt
