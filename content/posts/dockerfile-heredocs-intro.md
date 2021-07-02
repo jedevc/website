@@ -1,6 +1,6 @@
 ---
 title: Introduction to heredocs in Dockerfiles
-date: 2021-06-29
+date: 2021-07-02
 description: >
   A beginner's introduction to the new heredocs feature in moby/buildkit.
 ---
