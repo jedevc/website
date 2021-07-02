@@ -4,3 +4,9 @@ nav.navbar {
     top: 0;
   }
 }
+
+nav.navbar .navbar-item {
+  &:focus {
+    background-color: bulmaDarken($primary, 5%);
+  }
+}
