@@ -180,6 +180,33 @@ echo "World!" >> /hello
 EOF
 ```
 
+<SidenoteDanger>
+
+Just remember! Heredocs *are scripts* -- therefore, you *probably* want to exit
+after the first error, instead of erroring on just the final command. To do
+this, you have three options:
+
+1. Combine all the commands using the `&&` operator - however, this is
+   identical to before, and still quite nasty to read!
+2. In each heredoc, use the `set -e` command to exit on first error.
+
+    ```dockerfile
+    RUN <<EOF
+    set -e
+    ...
+    EOF
+    ```
+3. Set your shell to include the `-e` flag:
+
+    ```dockerfile
+    SHELL ["/bin/sh", "-e", "-c"]
+    ```
+
+My personal preference is the last option, since it requires only a single line
+of your Dockerfile to change.
+
+</SidenoteDanger>
+
 But let's say your setup scripts are getting more complicated, and you want to
 use another language - say, like Python. Well, no problem, you can connect
 heredocs to other programs!
