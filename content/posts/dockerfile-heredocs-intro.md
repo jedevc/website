@@ -76,19 +76,19 @@ you can always switch back if you don't like it).
 With buildkit properly setup, you can create a new `Dockerfile`: at the top of
 this file, we need to include a `#syntax=` directive. This directive informs
 the parser to use a specific frontend - in this case, the one located at
-[`docker/dockerfile-upstream`](https://hub.docker.com/r/docker/dockerfile-upstream)
+[`docker/dockerfile:1.3-labs`](https://hub.docker.com/r/docker/dockerfile)
 on Docker Hub.
 
 <SidenoteWarning>
 
-`docker/dockerfile-upstream` is the staging repository for buildkit and so
-includes support for the heredoc syntax. However, it's probably not suitable
-for use in a production environment.
+`docker/dockerfile:1.3-labs` is part of the labs channel of buildkit and so
+includes support for the new heredoc syntax. However, it may not be suitable
+for use in a production environment, so use your best judgement.
 
 </SidenoteWarning>
 
 ```dockerfile
-# syntax=docker/dockerfile-upstream:master-labs
+# syntax=docker/dockerfile:1.3-labs
 ```
 
 With this line (which has to be the very first line), buildkit will find and
