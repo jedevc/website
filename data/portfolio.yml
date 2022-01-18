@@ -1,6 +1,12 @@
 - title: Work
   items:
     - name: Pexip
+      subname: Software Engineer
+      link: https://www.pexip.com
+      text: >
+        Currently working on Pexip Infinity.
+      image: portfolio/pexip.png
+    - name: Pexip
       subname: Software Intern
       link: https://www.pexip.com
       text: >
@@ -70,7 +76,7 @@
 - title: Projects
   items:
     - name: AppArea
-      link: https://apparea.dev
+      link: https://github.com/jedevc/apparea
       text: >
         Cast your localhost apps onto the internet and share them with the
         world!
