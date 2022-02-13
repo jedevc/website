@@ -3,38 +3,45 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import MDXProvider from "../mdx"
 
-export function PostPreview({ title, date, summary }) {
+export function PostPreview({
+  title,
+  date,
+  summary,
+  small = false,
+  className = "",
+  ...props
+}) {
   return (
-    <div className="box mb-4">
-      <PostHeader title={title} date={date} />
-      <p>{summary}</p>
+    <div className={`box ${className}`} {...props}>
+      <PostHeader title={title} date={date} small={small} />
+      <p className={small ? "is-size-7" : "is-size-6"}>{summary}</p>
     </div>
   )
 }
 
-export function Post({ title, date, content }) {
+export function Post({ title, date, content, ...props }) {
   return (
-    <>
+    <div {...props}>
       <PostHeader title={title} date={date} />
       <div className="content">
         <MDXProvider>
           <MDXRenderer>{content}</MDXRenderer>
         </MDXProvider>
       </div>
-    </>
+    </div>
   )
 }
 
-function PostHeader({ title, date }) {
+function PostHeader({ title, date, small = false, ...props }) {
   return (
-    <>
-      {title && <h1 className="title mb-2">{title}</h1>}
+    <div {...props}>
+      {title && <h2 className={`title mb-2 is-${small ? 4 : 3}`}>{title}</h2>}
       {date && (
-        <div className="has-text-grey is-size-7 mb-5">
+        <div className={`has-text-grey mb-5 is-size-7`}>
           <time dateTime={date}>{formatDate(date)}</time>
         </div>
       )}
-    </>
+    </div>
   )
 }
 

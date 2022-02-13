@@ -33,6 +33,7 @@ export default function Blog({ data }) {
         {nodes.map(node => (
           <Link key={node.id} to={node.fields.slug}>
             <PostPreview
+              style={{ marginBottom: "1rem" }}
               title={node.frontmatter.title}
               date={node.frontmatter.date}
               summary={node.frontmatter.description || node.excerpt}
