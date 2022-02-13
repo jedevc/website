@@ -11,7 +11,7 @@ description: >
 As of a couple weeks ago, Docker's BuildKit tool for building Dockerfiles now
 supports [heredoc syntax](https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/syntax.md#user-content-here-documents)!
 With these new improvements, we can do all sorts of things that were difficult
-before, like multiline `RUN`s *without* needing all those pesky backslashes at
+before, like multiline `RUN`s _without_ needing all those pesky backslashes at
 the end of each line, or the creation of small inline configuration files.
 
 In this post, I'll cover the basics of what these heredocs
@@ -39,7 +39,7 @@ docker images, or images for other OCI runtimes.
 
 It comes with a lot of useful (and pretty) features beyond what the basic
 builder supports, including neater build log output, faster and more
-cache-efficient builds, concurrent builds, as well as a *very* flexible
+cache-efficient builds, concurrent builds, as well as a _very_ flexible
 architecture to allow easy extendability (I'm definitely not doing it justice).
 
 You're either most likely using it already, or you probably want to be!
@@ -62,7 +62,7 @@ You can think of LLB to BuildKit as the LLVM IR is to Clang.
 
 Part of what makes buildkit so fantastic is it's flexibility - these components
 are completely detached from each other, so you can use any frontend in any
-image.  For example, you could use the default Dockerfile frontend, or compile
+image. For example, you could use the default Dockerfile frontend, or compile
 your own self-contained [buildpacks](https://github.com/tonistiigi/buildkit-pack),
 or even develop your own alternative file format like [Mockerfile](https://matt-rickard.com/building-a-new-dockerfile-frontend/).
 
@@ -70,7 +70,7 @@ or even develop your own alternative file format like [Mockerfile](https://matt-
 
 To get started with using heredocs, first [make sure you're setup with buildkit](https://docs.docker.com/develop/develop-images/build_enhancements/).
 Switching to buildkit gives you a ton of out-of-the-box improvements to your
-build setup, and *should* have complete compatibility with the old builder (and
+build setup, and _should_ have complete compatibility with the old builder (and
 you can always switch back if you don't like it).
 
 With buildkit properly setup, you can create a new `Dockerfile`: at the top of
@@ -122,7 +122,7 @@ original issue that proposed heredocs in 2017.
 
 </Sidenote>
 
-Let's suppose you want to build an image that requires a *lot* of commands to
+Let's suppose you want to build an image that requires a _lot_ of commands to
 setup. For example, a fairly common pattern in `Dockerfile`s involves wanting to
 update the system, and then to install some additional dependencies, i.e. `apt`
 `update`, `upgrade` and `install` all at once.
@@ -182,7 +182,7 @@ EOF
 
 <SidenoteDanger>
 
-Just remember! Heredocs *are scripts* -- therefore, you *probably* want to exit
+Just remember! Heredocs _are scripts_ -- therefore, you _probably_ want to exit
 after the first error, instead of erroring on just the final command. To do
 this, you have three options:
 
@@ -190,17 +190,18 @@ this, you have three options:
    identical to before, and still quite nasty to read!
 2. In each heredoc, use the `set -e` command to exit on first error.
 
-    ```dockerfile
-    RUN <<EOF
-    set -e
-    ...
-    EOF
-    ```
+   ```dockerfile
+   RUN <<EOF
+   set -e
+   ...
+   EOF
+   ```
+
 3. Set your shell to include the `-e` flag:
 
-    ```dockerfile
-    SHELL ["/bin/sh", "-e", "-c"]
-    ```
+   ```dockerfile
+   SHELL ["/bin/sh", "-e", "-c"]
+   ```
 
 My personal preference is the last option, since it requires only a single line
 of your Dockerfile to change.
@@ -282,7 +283,7 @@ humans.txt
 
 Hopefully, I've managed to convince you to give heredocs a try when you can!
 For now, they're still only available in the staging frontend, but they should
-be making their way into a release *very* soon - so make sure to take a look
+be making their way into a release _very_ soon - so make sure to take a look
 and give your feedback!
 
 If you're interested, you can find out more from the official buildkit Dockerfile

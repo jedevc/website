@@ -42,7 +42,7 @@ for this day is really wonderful - there's a combination of brute force
 implementations, reverse engineering the MONAD program itself (which is what I
 initially did), and some other weird and out there solutions. However, my
 favorite solutions are the ones that both 1. run in a reasonable amount of
-time, and 2. don't assume *anything* about the structure of the input program.
+time, and 2. don't assume _anything_ about the structure of the input program.
 
 So, in this post, I've attempted to explain my solution which achieves both of
 these goals by using the magic of ✨ symbolic execution ✨.
@@ -78,7 +78,7 @@ branching.
 
 <Sidenote>
 
-There's a *lot* of use of symbolic execution in academic security - it's often
+There's a _lot_ of use of symbolic execution in academic security - it's often
 given as an alternative (or partner) to
 [fuzzing](https://en.wikipedia.org/wiki/Fuzzing), and has the potential to find
 very niche and specific issues that many other automated methods struggle to.
@@ -236,7 +236,7 @@ impl Instruction {
             .iter()
             .map(|s| Value::parse(s))
             .collect();
-        let operands = operands?;        
+        let operands = operands?;
 ```
 
 <Sidenote>
@@ -278,7 +278,7 @@ respectively:
 This is kinda a weird use of macros - probably not the best idea for production
 code, but it was a lot shorter than some of the other alternatives that I tried
 for, and for a blog post, short code blocks matter.
-    
+
 Having come from a world of C/C++, it's quite pleasant to realize that macros
 are scoped, so they won't escape this function.
 
@@ -435,7 +435,7 @@ however, in these structures we have two new things:
 2. The ability to contain an index variable for each register and the input,
    which lets us represent program flow over time in a series of mathematical
    assignments.
-   
+
 Our `Expression`s bind these concepts together, to produce the right hand side
 of our assignments.
 
@@ -651,7 +651,7 @@ s-expressions:
 
 <Sidenote>
 
-So, while you *could* use `Int`s instead of bit-vectors here, doing so will
+So, while you _could_ use `Int`s instead of bit-vectors here, doing so will
 give you some major performance problems - I know, because this is initially
 what I did. This performance issues comes from the fact that using bit-vectors
 uses a different smt logic which is more optimized for our particular problem.
@@ -718,7 +718,7 @@ We just need to print the closing parts of our z3 program now:
             .collect::<Vec<_>>()
             .join(" ")
     );
-    
+
     Ok(())
 ```
 
@@ -871,7 +871,7 @@ sat
 
 The resulting output makes up our digits: `91928914999981`!
 
-However, this isn't *quite* the solution to the AOC problem: remember, we want
+However, this isn't _quite_ the solution to the AOC problem: remember, we want
 to find the **largest** possible id number, not just any id number.
 
 So back to our code, we can add an optimization to our set of constraints right
