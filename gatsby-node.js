@@ -3,7 +3,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 const basePath = process.cwd()
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = async ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `Mdx`) {
     const { sourceInstanceName, absolutePath } = getNode(node.parent)
@@ -22,6 +22,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       createNodeField({ node, name: `slug`, value: slug })
     }
   }
+
+  return node
 }
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -128,9 +130,36 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
+exports.createSchemaCustomization = ({ actions, createContentDigest }) => {
+  const { createFieldExtension, createTypes } = actions
+
+  createFieldExtension({
+    name: "mdx",
+    extend() {
+      return {
+        type: "String",
+        resolve(source, args, context, info) {
+          const value = source[info.fieldName]
+          const mdxType = info.schema.getType("Mdx")
+          const { resolve } = mdxType.getFields().body
+
+          return resolve(
+            {
+              rawBody: value,
+              internal: {
+                contentDigest: createContentDigest(value),
+              },
+            },
+            args,
+            context,
+            info
+          )
+        },
+      }
+    },
+  })
+
+  createTypes(`
     type Site implements Node {
       siteMetadata: SiteMetadata!
     }
@@ -161,8 +190,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: String
+      template: String
       hidden: Boolean
+      sections: [Section]
     }
-  `
-  createTypes(typeDefs)
+    type Section {
+      content: String @mdx
+    }
+  `)
 }
