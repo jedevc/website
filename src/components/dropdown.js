@@ -4,7 +4,7 @@ import { FaAngleDown } from "react-icons/fa"
 
 import useClickToggle from "../hooks/useClickToggle"
 
-export default function Dropdown({ path }) {
+export default function Dropdown({ path, className = "", ...props }) {
   const [clicked, handleClick] = useClickToggle()
 
   const data = useStaticQuery(graphql`
@@ -40,9 +40,10 @@ export default function Dropdown({ path }) {
 
   return (
     <div
-      className={`dropdown is-right is-pulled-right ${
+      className={`${className} dropdown is-right is-pulled-right ${
         clicked ? "is-active" : ""
       }`}
+      {...props}
     >
       <div className="dropdown-trigger">
         <button className="is-not-button-custom" onClick={handleClick}>

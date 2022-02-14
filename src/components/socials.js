@@ -2,9 +2,14 @@ import React from "react"
 
 import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"
 
-export default function Socials(props) {
-  const { twitter, github, linkedin, email } = props
-
+export default function Socials({
+  twitter,
+  github,
+  linkedin,
+  email,
+  className = "",
+  ...props
+}) {
   let socials = []
   if (github) {
     socials.push(
@@ -60,7 +65,7 @@ export default function Socials(props) {
   }
 
   return (
-    <div className="panel">
+    <div className={`${className} panel`} {...props}>
       <p className="panel-heading">Socials</p>
       {socials}
     </div>
