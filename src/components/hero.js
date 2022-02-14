@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Nav from "./nav"
 
-export default function Hero() {
+export default function Hero({ className = "", ...props }) {
   const data = useStaticQuery(graphql`
     query HomeLayoutQuery {
       site {
@@ -17,7 +17,7 @@ export default function Hero() {
   const { title, description } = data.site.siteMetadata
 
   return (
-    <section className="hero is-primary is-medium">
+    <section className={`${className} hero is-primary is-medium`} {...props}>
       <div className="hero-head">
         <Nav />
       </div>

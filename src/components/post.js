@@ -12,7 +12,7 @@ export function PostPreview({
   ...props
 }) {
   return (
-    <div className={`box ${className}`} {...props}>
+    <div className={`${className} box`} {...props}>
       <PostHeader title={title} date={date} small={small} />
       <p className={small ? "is-size-7" : "is-size-6"}>{summary}</p>
     </div>
