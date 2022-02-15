@@ -21,6 +21,7 @@ export default function Dropdown({ path, className = "", ...props }) {
   let items = []
   if (github && path) {
     // Craft the url to the github path
+    //
     // This is annoyingly difficult as we might be provided with slashes in the
     // "wrong" places. So, we just pretend that no slashes are included, and
     // then remove duplicated ones later.

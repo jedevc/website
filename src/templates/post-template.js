@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../layouts/basic"
 
@@ -27,29 +27,36 @@ export default function BlogPost({ data }) {
         content={post.body}
       />
 
-      <nav className="level">
-        <div className="level-left">
-          {prev && (
-            <a className="level-item button" href={prev.fields.slug}>
-              <span className="icon">
-                <FaArrowLeft />
-              </span>
-              <span>Previous post</span>
-            </a>
-          )}
-        </div>
-        <div className="level-right">
-          {next && (
-            <a className="level-item button" href={next.fields.slug}>
-              <span>Next post</span>
-              <span className="icon">
-                <FaArrowRight />
-              </span>
-            </a>
-          )}
-        </div>
-      </nav>
+      <PostActionButtons>
+        <PostActionButton
+          link={prev && prev.fields.slug}
+          icon={<FaArrowLeft />}
+          text="Previous post"
+        />
+        <PostActionButton
+          link={next && next.fields.slug}
+          icon={<FaArrowRight />}
+          text="Next post"
+        />
+      </PostActionButtons>
     </Layout>
+  )
+}
+
+function PostActionButtons({ children }) {
+  return <div className="columns is-gapless mt-4">{children}</div>
+}
+
+function PostActionButton({ link, text, icon }) {
+  return (
+    <div className="column mx-2 my-2">
+      {link && (
+        <Link className="button is-fullwidth" to={link}>
+          <span className="icon">{icon}</span>
+          <span>{text}</span>
+        </Link>
+      )}
+    </div>
   )
 }
 
