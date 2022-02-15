@@ -29,11 +29,11 @@ After a few glances, we can identify a few vulnerabilities.
 
 First, a `printf` format string vulnerability using the name:
 
-![printf vulnerability](part1.png)
+![printf vulnerability](./part1.png)
 
 Next, a `gets` buffer overflow with the password:
 
-![gets vulnerability](part2.png)
+![gets vulnerability](./part2.png)
 
 Now that we've identified our possible entry points, we need to see what
 protections are enabled using `checksec`:
