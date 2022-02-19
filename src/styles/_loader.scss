@@ -1,8 +1,7 @@
 $duration: 2s;
 
 .navbar-loader {
-  position: sticky;
-  top: 3.25rem;
+  position: relative;
   width: 100vw;
   height: 2px;
   z-index: 100;

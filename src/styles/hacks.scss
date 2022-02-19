@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+//  _   _    _    ____ _  ______
+// | | | |  / \  / ___| |/ / ___|
+// | |_| | / _ \| |   | ' /\___ \
+// |  _  |/ ___ \ |___| . \ ___) |
+// |_| |_/_/   \_\____|_|\_\____/
+//
+// -----------------------------------------------------------------------------
+
+// Avoid bulma and prism css conflicts
+// https://www.darraghoriordan.com/2019/01/20/bulma-prismjs-in-gatsby-css-conflicts/
+.token.tag,
+.token.content,
+.token.number {
+  display: inline;
+  padding: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  vertical-align: inherit;
+  border-radius: inherit;
+  font-weight: inherit;
+  white-space: inherit;
+  background: inherit;
+  margin: inherit;
+}
+
+// Ensure that the exiting transistor remains in front as it exits
+// This is required for cross-browser compatibility
+.transistor.entering,
+.transistor.entered {
+  z-index: 100;
+}
+.transistor.exiting,
+.transistor.exited {
+  z-index: 200;
+}
