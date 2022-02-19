@@ -72,16 +72,20 @@ exports.createPages = async ({ graphql, actions }) => {
     let nextPost
     let prevPost
     if (!node.frontmatter.hidden) {
-      for (let i = index + 1; i < posts.length; i++) {
-        if (!posts[i].frontmatter.hidden) {
-          nextPost = posts[i].fields.slug
-          break
+      if (index > 0) {
+        for (let i = index - 1; i >= 0; i--) {
+          if (!posts[i].frontmatter.hidden) {
+            prevPost = posts[i].fields.slug
+            break
+          }
         }
       }
-      for (let i = index - 1; i >= 0; i--) {
-        if (!posts[i].frontmatter.hidden) {
-          prevPost = posts[i].fields.slug
-          break
+      if (index < posts.length - 1) {
+        for (let i = index + 1; i < posts.length; i++) {
+          if (!posts[i].frontmatter.hidden) {
+            nextPost = posts[i].fields.slug
+            break
+          }
         }
       }
     }

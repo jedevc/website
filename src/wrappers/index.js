@@ -12,6 +12,22 @@ export default function Wrapper({ children, location }) {
   )
 }
 
+const Transistor = ({ children, location }) => (
+  <TransitionGroup>
+    <ReactTransition key={location.pathname} timeout={timeout}>
+      {status => {
+        const className = `transistor ${status}`
+        const style = { ...defaultStyle, ...styles[status] }
+        return (
+          <div className={className} style={style}>
+            {children}
+          </div>
+        )
+      }}
+    </ReactTransition>
+  </TransitionGroup>
+)
+
 const timeout = 400
 const defaultStyle = {
   position: "absolute",
@@ -33,13 +49,3 @@ const styles = {
     opacity: 0.01,
   },
 }
-
-const Transistor = ({ children, location }) => (
-  <TransitionGroup>
-    <ReactTransition key={location.pathname} timeout={timeout}>
-      {status => (
-        <div style={{ ...defaultStyle, ...styles[status] }}>{children}</div>
-      )}
-    </ReactTransition>
-  </TransitionGroup>
-)
