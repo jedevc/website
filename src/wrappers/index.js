@@ -9,7 +9,7 @@ export default function Wrapper({ children, location }) {
 }
 
 const Transistor = ({ children, location }) => (
-  <TransitionGroup>
+  <TransitionGroup className="transistors">
     <ReactTransition key={location.pathname} timeout={timeout}>
       {status => {
         const className = `transistor ${status} full-page-custom`
@@ -26,8 +26,6 @@ const Transistor = ({ children, location }) => (
 
 const timeout = 400
 const defaultStyle = {
-  position: "absolute",
-  width: "100vw",
   transition: `opacity ${timeout}ms ease-in-out`,
   opacity: 0,
 }

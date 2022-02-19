@@ -19,11 +19,15 @@ html {
 }
 
 .full-page-custom {
-  background-color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-  height: 100%;
+  width: 100vw;
   min-height: 100vh;
   min-height: stretch;
+
+  background-color: $white;
 }
 
 .content {
@@ -52,20 +56,4 @@ html {
 @import "sidebar";
 @import "loader";
 
-// avoid bulma and prism css conflicts
-// https://www.darraghoriordan.com/2019/01/20/bulma-prismjs-in-gatsby-css-conflicts/
-.token.tag,
-.token.content,
-.token.number {
-  display: inline;
-  padding: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  text-align: inherit;
-  vertical-align: inherit;
-  border-radius: inherit;
-  font-weight: inherit;
-  white-space: inherit;
-  background: inherit;
-  margin: inherit;
-}
+@import "hacks";

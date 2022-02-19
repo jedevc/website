@@ -3,6 +3,7 @@ nav.navbar .navbar-item {
     background-color: bulmaDarken($primary, 5%);
   }
 }
+
 .is-sticky-nav {
   z-index: $navbar-z;
   position: sticky;
