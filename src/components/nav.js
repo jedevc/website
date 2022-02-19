@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import useClickToggle from "../hooks/useClickToggle"
@@ -26,26 +26,26 @@ export default function Nav({ sticky, className = "", ...props }) {
   const items = data.allNavYaml.nodes
 
   return (
-    <NavBar sticky={sticky} className={className} {...props}>
-      <NavBrand title={display} active={active} onToggle={handleActivate} />
-      <NavMenu active={active}>
-        <NavStart items={items} />
-        <NavEnd></NavEnd>
-      </NavMenu>
-    </NavBar>
+    <>
+      <NavBar sticky={sticky} className={className} {...props}>
+        <NavBrand title={display} active={active} onToggle={handleActivate} />
+        <NavMenu active={active}>
+          <NavStart items={items} />
+          <NavEnd></NavEnd>
+        </NavMenu>
+      </NavBar>
+    </>
   )
 }
 
 function NavBar({ children, sticky, className = "", ...props }) {
   return (
-    <nav
-      className={`${className} navbar ${
-        sticky ? "has-shadow is-sticky-custom" : ""
-      }`}
-      {...props}
-    >
-      <div className="container">{children}</div>
-    </nav>
+    <div className={`${className} ${sticky ? "is-sticky-nav" : ""}`} {...props}>
+      <nav className={`navbar ${sticky ? "has-shadow" : ""}`}>
+        <div className="container">{children}</div>
+      </nav>
+      <NavLoader />
+    </div>
   )
 }
 
@@ -119,5 +119,29 @@ function NavEnd({ children, className = "", ...props }) {
         </span>
       ))}
     </div>
+  )
+}
+
+function NavLoader({ className = "", ...props }) {
+  const [loadState, setLoadState] = useState("idle")
+
+  const onLoadStart = () => {
+    setLoadState("loading")
+  }
+  const onLoadEnd = () => {
+    setLoadState("loaded")
+  }
+
+  useEffect(() => {
+    window.addEventListener("_loading", onLoadStart)
+    window.addEventListener("_loaded", onLoadEnd)
+    return () => {
+      window.removeEventListener("_loading", onLoadStart)
+      window.removeEventListener("_loaded", onLoadEnd)
+    }
+  })
+
+  return (
+    <div className={`${className} navbar-loader ${loadState}`} {...props}></div>
   )
 }
