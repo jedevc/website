@@ -5,18 +5,14 @@ import {
 } from "react-transition-group"
 
 export default function Wrapper({ children, location }) {
-  return (
-    <div className="full-page-custom">
-      <Transistor location={location}>{children}</Transistor>
-    </div>
-  )
+  return <Transistor location={location}>{children}</Transistor>
 }
 
 const Transistor = ({ children, location }) => (
   <TransitionGroup>
     <ReactTransition key={location.pathname} timeout={timeout}>
       {status => {
-        const className = `transistor ${status}`
+        const className = `transistor ${status} full-page-custom`
         const style = { ...defaultStyle, ...styles[status] }
         return (
           <div className={className} style={style}>
