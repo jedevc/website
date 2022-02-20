@@ -1,0 +1,26 @@
+diff --git a/node_modules/gatsby/cache-dir/commonjs/navigation.js b/node_modules/gatsby/cache-dir/commonjs/navigation.js
+index 20b42e7..c5456e6 100644
+--- a/node_modules/gatsby/cache-dir/commonjs/navigation.js
++++ b/node_modules/gatsby/cache-dir/commonjs/navigation.js
+@@ -126,7 +126,7 @@ const navigate = (to, options = {}) => {
+     (0, _apiRunnerBrowser.apiRunner)(`onRouteUpdateDelayed`, {
+       location: window.location
+     });
+-  }, 1000);
++  }, 100);
+ 
+   _loader.default.loadPage(pathname + search).then(pageResources => {
+     // If no page resources, then refresh the page
+diff --git a/node_modules/gatsby/cache-dir/navigation.js b/node_modules/gatsby/cache-dir/navigation.js
+index 9bf8fbb..e0b6531 100644
+--- a/node_modules/gatsby/cache-dir/navigation.js
++++ b/node_modules/gatsby/cache-dir/navigation.js
+@@ -83,7 +83,7 @@ const navigate = (to, options = {}) => {
+     apiRunner(`onRouteUpdateDelayed`, {
+       location: window.location,
+     })
+-  }, 1000)
++  }, 100)
+ 
+   loader.loadPage(pathname + search).then(pageResources => {
+     // If no page resources, then refresh the page
