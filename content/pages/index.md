@@ -11,6 +11,5 @@ sections:
       and systems programming, to hacking and learning (arguably) exotic
       programming languages.
 
-      I'm currently working at [Pexip](https://dev.pexip.com/), improving CI
-      and fuzzing everything I can get my hands on.
+      I currently work at [Docker](https://docker.com/) 🐋
 ---

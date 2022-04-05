@@ -1,10 +1,16 @@
 - title: Work
   items:
+    - name: Docker
+      subname: Software Engineer
+      link: https://www.docker.com
+      text: >
+        🐋
+      image: portfolio/docker.png
     - name: Pexip
       subname: Software Engineer
       link: https://www.pexip.com
       text: >
-        Currently working on Pexip Infinity.
+        Worked on Pexip Infinity, deploying CI, and improving video codecs.
       image: portfolio/pexip.png
     - name: Pexip
       subname: Software Intern

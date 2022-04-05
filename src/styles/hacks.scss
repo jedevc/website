@@ -35,3 +35,9 @@
 .transistor.exited {
   z-index: 200;
 }
+
+// Show shadow of card header over card image
+.card .card-header {
+  position: relative;
+  z-index: 10;
+}
