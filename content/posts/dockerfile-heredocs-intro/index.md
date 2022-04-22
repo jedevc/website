@@ -21,7 +21,7 @@ with them! 🎉
 </Column>
 <Column size="one-quarter">
 
-![](https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png)
+![](./moby.png)
 
 </Column>
 </Columns>
