@@ -1,15 +1,21 @@
 @charset "utf-8";
 
-$primary: #3c78d8;
+$primary: #ffd832;
 $info: #54c0f2;
 $success: #83ef40;
 $warning: #edf73b;
 $danger: #f42474;
+$link: darken($primary, 20%);
+
 $navbar-burger-color: inherit;
 
 $size-7: 0.85rem;
 
 $section-padding: 2rem 1.5rem;
+
+$navbar-item-focus-background-color: lighten($primary, 30%);
+$hero-navbar-item-hover-background-color: darken($primary, 15%);
+$hero-navbar-item-focus-background-color: $hero-navbar-item-hover-background-color;
 
 @import "~bulma/bulma";
 @import "~prism-themes/themes/prism-ghcolors.css";
@@ -55,5 +61,6 @@ html {
 @import "grid";
 @import "sidebar";
 @import "loader";
+@import "hero";
 
 @import "hacks";

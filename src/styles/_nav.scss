@@ -1,6 +1,17 @@
 nav.navbar .navbar-item {
   &:focus {
-    background-color: bulmaDarken($primary, 5%);
+    background-color: $navbar-item-focus-background-color;
+  }
+}
+.hero {
+  nav.navbar .navbar-item {
+    &:hover,
+    &.is-active {
+      background-color: $hero-navbar-item-hover-background-color;
+    }
+    &:focus {
+      background-color: $hero-navbar-item-focus-background-color;
+    }
   }
 }
 

@@ -1,0 +1,21 @@
+$hero-picture-background-color: #ffffe4;
+
+.hero {
+  .hero-picture {
+    background-color: $hero-picture-background-color;
+    border: 1px solid $border;
+    box-shadow: $shadow;
+    border-radius: $radius;
+
+    max-width: 40vh;
+    max-height: 40vh;
+
+    width: 90%;
+
+    img {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+  }
+}
