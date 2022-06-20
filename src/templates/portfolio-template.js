@@ -57,7 +57,7 @@ function PortfolioItem({ name, subname, link, image, text, points }) {
       {image && (
         <div className="card-image">
           <figure className="image">
-            <GatsbyImage image={cardImage} />
+            <GatsbyImage image={cardImage} alt="" />
           </figure>
         </div>
       )}
