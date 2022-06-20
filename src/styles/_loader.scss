@@ -14,7 +14,7 @@ $duration: 2s;
     height: 100%;
     position: absolute;
 
-    background-color: #3c78d8;
+    background-color: $primary;
 
     transform: scaleX(0);
     transform-origin: top left;
