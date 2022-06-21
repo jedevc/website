@@ -19,3 +19,9 @@ $hero-picture-background-color: #ffffe4;
     }
   }
 }
+
+@include mobile {
+  .hero-body {
+    padding-top: 0.5em;
+  }
+}
