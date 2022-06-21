@@ -5,6 +5,7 @@ import Layout from "../layouts/basic"
 
 import { Post } from "../components/post"
 import Seo from "../components/seo"
+import Favicons from "../components/favicons"
 import Dropdown from "../components/dropdown"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 
@@ -15,6 +16,7 @@ export default function BlogPost({ data }) {
 
   return (
     <Layout>
+      <Favicons />
       <Seo
         title={post.frontmatter.title}
         description={description}

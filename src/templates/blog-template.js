@@ -5,12 +5,14 @@ import { FaRss } from "react-icons/fa"
 import Layout from "../layouts/basic"
 import { PostPreview } from "../components/post"
 import Seo from "../components/seo"
+import Favicons from "../components/favicons"
 
 export default function Blog({ data }) {
   const { nodes } = data.allMdx
 
   return (
     <Layout>
+      <Favicons />
       <Seo title="Blog" path="/blog/" />
 
       <div className="is-pulled-right">

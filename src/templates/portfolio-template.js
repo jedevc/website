@@ -5,12 +5,14 @@ import { FaLink } from "react-icons/fa"
 
 import Layout from "../layouts/basic"
 import Seo from "../components/seo"
+import Favicons from "../components/favicons"
 
 export default function Portfolio({ data }) {
   const sections = data.allPortfolioYaml.nodes
 
   return (
     <Layout>
+      <Favicons />
       <Seo title="Portfolio" path="/portfolio/" />
 
       <h1 className="title">My Portfolio</h1>

@@ -5,6 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../layouts/home"
 import MDXProvider from "../mdx"
 import Seo from "../components/seo"
+import Favicons from "../components/favicons"
 import Socials from "../components/socials"
 import { PostPreview } from "../components/post"
 
@@ -15,6 +16,7 @@ export default function Index({ data }) {
 
   return (
     <Layout>
+      <Favicons />
       <Seo path="/" />
       <div className="columns">
         <div className="column content">

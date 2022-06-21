@@ -5,6 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../layouts/basic"
 import MDXProvider from "../mdx"
 import Seo from "../components/seo"
+import Favicons from "../components/favicons"
 import Dropdown from "../components/dropdown"
 
 export default function Page({ data }) {
@@ -14,6 +15,7 @@ export default function Page({ data }) {
 
   return (
     <Layout>
+      <Favicons />
       <Seo
         title={page.frontmatter.title}
         description={description}
