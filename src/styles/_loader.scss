@@ -1,5 +1,12 @@
 $duration: 2s;
 
+:root {
+  --loader-color: #{darken($primary, 20%)};
+}
+.hero {
+  --loader-color: #{darken($primary, 30%)};
+}
+
 .navbar-loader {
   position: relative;
   width: 100vw;
@@ -14,7 +21,7 @@ $duration: 2s;
     height: 100%;
     position: absolute;
 
-    background-color: $primary;
+    background-color: var(--loader-color);
 
     transform: scaleX(0);
     transform-origin: top left;
