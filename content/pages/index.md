@@ -11,5 +11,7 @@ sections:
       and systems programming, to hacking and learning (arguably) exotic
       programming languages.
 
-      I currently work at [Docker](https://docker.com/) 🐋
+      I'm currently a maintainer for [BuildKit](https://github.com/moby/buildkit),
+      and do various contributions around the container ecosystem from time to
+      time 📦
 ---
