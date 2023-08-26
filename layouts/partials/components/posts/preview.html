@@ -1,0 +1,6 @@
+<div class="box">
+  {{ partial "components/posts/header.html" . }}
+  <p class="{{ if .small }}is-size-7{{ else }}is-size-6{{ end }}">
+    {{ .summary }}
+  </p>
+</div>

@@ -15,8 +15,8 @@ Install dependencies:
 
     $ yarn install
 
-Start gatsby development mode:
+Start hugo development mode:
 
-    $ yarn develop
+    $ hugo serve
 
-The site should now be running on <http://localhost:8000>
+The site should now be running on <http://localhost:1313>

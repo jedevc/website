@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    {{ $title := .Site.Title }}
+    {{ with .Title }}
+      {{ $title = printf "%s | %s" $title . }}
+    {{ end }}
+    {{ $title }}
+  </title>
+
+  {{ $options := dict
+    "transpiler" "dartsass"
+    "targetPath" "css/style.css"
+    "enableSourceMap" (not hugo.IsProduction) 
+    "includePaths" (slice "node_modules/")
+  }}
+  {{ with resources.Get "styles/index.scss" | toCSS $options | minify | fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+
+  {{ with resources.Get "scripts/main.js" | js.Build | minify | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{ end }}
+  
+  {{ $title := or .Title .Site.Params.metadata.title }}
+  {{ $description := or .Summary .Site.Params.metadata.summary }}
+  {{ $creator := .Site.Params.socials.twitter }}
+
+  <meta property="description" content="{{ $description }}">
+
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:type" content="website">
+
+  <meta property="twitter:title" content="{{ $title }}">
+  <meta property="twitter:description" content="{$creator $description }}">
+  {{ with $creator }}
+    <meta property="twitter:creator" content="{{ . }}">
+  {{ end }}
+  
+  <link rel="canonical" href="{{ .Page.Permalink }}">
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="mask-icon" color="#5bbad5" href="/safari-pinned-tab.svg">
+
+  {{ block "head" . }}{{ end }}
+</head>
+<body>
+  {{ block "body" . }}{{ end }}
+</body>
+</html>

@@ -1,0 +1,22 @@
+{{ define "body" }}
+  {{ partial "components/nav.html" (dict 
+    "name" .Site.Params.metadata.name
+    "menu" .Site.Menus.main
+    "page" .
+    "sticky" true
+  )}}
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds-desktop is-full-tablet">
+          <h1 class="title">Page not found</h1>
+          <div class="content">
+            <p>The page you are looking for has been removed or relocated.</p>
+            <p><a href="/">Go back</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

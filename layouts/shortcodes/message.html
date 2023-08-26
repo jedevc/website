@@ -1,0 +1,12 @@
+{{/*
+  message defines an indented message block.
+
+  Possible parameters include:
+    "primary", "link", "info", "success", "warning", "danger"
+*/}}
+
+<div class="message is-small {{ with .Get 0 }}is-{{ . }}{{ end }}">
+  <div class="message-body">
+    {{ .Inner | .Page.RenderString }}
+  </div>
+</div>

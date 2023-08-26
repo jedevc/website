@@ -1,0 +1,47 @@
+<div class="panel">
+  <p class="panel-heading">Socials</p>
+  {{ with .github }}
+      <a
+        class="panel-block"
+        href="https://github.com/{{ . }}"
+      >
+        <span class="panel-icon">
+          <i class="fa-brands fa-github"></i>
+        </span>
+        GitHub
+      </a>
+  {{ end }}
+  {{ with .twitter }}
+      <a
+        class="panel-block"
+        href="https://twitter.com/{{ . }}"
+      >
+        <span class="panel-icon">
+          <i class="fa-brands fa-twitter"></i>
+        </span>
+        Twitter
+      </a>
+  {{ end }}
+  {{ with .linkedin }}
+      <a
+        class="panel-block"
+        href="https://linkedin.com/in/{{ . }}"
+      >
+        <span class="panel-icon">
+          <i class="fa-brands fa-linkedin"></i>
+        </span>
+        Linkedin
+      </a>
+  {{ end }}
+  {{ with .email }}
+      <a
+        class="panel-block"
+        href="mailto:{{ . }}"
+      >
+        <span class="panel-icon">
+          <i class="fa-regular fa-envelope"></i>
+        </span>
+        Email
+      </a>
+  {{ end }}
+</div>

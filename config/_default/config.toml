@@ -1,0 +1,47 @@
+baseURL = "http://jedevc.com/"
+languageCode = "en-gb"
+title = "jedevc"
+
+disableKinds = ["taxonomy"]
+enableGitInfo = true
+
+summaryLength = 10
+
+[minify]
+minifyOutput = true
+
+[module]
+  [[module.mounts]]
+  source = "static"
+  target = "static"
+  
+  [[module.mounts]]
+  source = "node_modules/@fortawesome/fontawesome-free/webfonts"
+  target = "static/fonts/fontawesome"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 10
+  [[menu.main]]
+    name = "Blog"
+    pageRef = "/blog"
+    weight = 20
+  [[menu.main]]
+    name = "Portfolio"
+    pageRef = "/portfolio"
+    weight = 30
+  [[menu.main]]
+    name = "CV"
+    url = "https://cv.jedevc.com"
+    weight = 40
+  [[menu.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 50
+
+[markup]
+  [markup.highlight]
+    style = "github"
+    guessSyntax = true

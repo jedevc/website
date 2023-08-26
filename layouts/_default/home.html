@@ -1,0 +1,51 @@
+{{ define "body" }}
+  {{ partial "components/hero.html" (dict 
+    "name" .Site.Params.metadata.name
+    "title" .Site.Params.metadata.title
+    "description" .Site.Params.metadata.description
+    "menu" .Site.Menus.main
+    "page" .
+  )}}
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column content">
+          <h2 class="title is-family-monospace">whoami</h2>
+          {{ .Params.whoami | .RenderString (dict "display" "block")}}
+        </div>
+        <div class="column">
+          {{ partial "components/socials.html" (dict
+            "github" .Site.Params.socials.github
+            "twitter" .Site.Params.socials.twitter
+            "linkedin" .Site.Params.socials.linkedin
+            "email" .Site.Params.socials.email
+          )}}
+        </div>
+      </div>
+      <div class="content">
+        {{ .Content }}
+      </div>
+      <div class="content">
+        <h3 class="title">From my blog</h3>
+      </div>
+      <div class="custom-grid">
+        {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+          <div class="custom-grid-item">
+            <a href="{{ .RelPermalink }}" class="is-fullheight has-fullheight-children">
+              {{ partial "components/posts/preview.html" (dict 
+                "title" .Title
+                "date" .Date
+                "summary" .Summary
+                "small" true
+              )}}
+            </a>
+          </div>
+        {{ end }}
+      </div>
+      <a href="/blog" class="is-pulled-right">
+        See more...
+      </a>
+    </div>
+  </section>
+{{ end }}

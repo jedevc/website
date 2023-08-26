@@ -1,0 +1,24 @@
+<section class="hero is-primary">
+  <div class="hero-head">
+    {{ partial "components/nav.html" . }}
+  </div>
+
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-one-third is-flex is-justify-content-center">
+          {{ $profile := resources.Get "images/profile.png" }}
+          <img
+            src="{{ $profile.Permalink }}"
+            alt="Profile picture"
+            class="hero-picture"
+          />
+        </div>
+        <div class="column">
+          <h1 class="title">{{ .title }}</h1>
+          <h2 class="subtitle">{{ .description }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

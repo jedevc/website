@@ -1,0 +1,57 @@
+{{ define "head" }}
+  {{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+{{ end }}
+
+{{ define "body" }}
+  {{ partial "components/nav.html" (dict 
+    "name" .Site.Params.metadata.name
+    "menu" .Site.Menus.main
+    "page" .
+    "sticky" true
+  )}}
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds-desktop is-full-tablet">
+          {{ with .OutputFormats.Get "rss" -}}
+            <div class="is-pulled-right">
+              <a
+                class="button"
+                href="{{ .RelPermalink }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="icon">
+                  <i class="fa-solid fa-rss"></i>
+                </span>
+                <span>Feed</span>
+              </a>
+            </div>
+          {{ end -}}
+
+          {{ with .Title }}
+            <h1 class="title">{{ . }}</h1>
+          {{ end }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          
+          {{ range .Pages }}
+            <a href="{{ .Permalink }}">
+              <div style="margin-bottom: 1rem;">
+                {{ partial "components/posts/preview.html" (dict 
+                  "title" .Title
+                  "date" .Date
+                  "summary" .Summary
+                )}}
+              </div>
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

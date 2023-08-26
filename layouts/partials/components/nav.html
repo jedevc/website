@@ -1,0 +1,27 @@
+<div {{ if .sticky }}class="is-sticky-nav"{{ end }}>
+  <nav class="navbar {{ if .sticky }}has-shadow{{ end }}">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <span class="is-size-4 pb-2">&lt;{{ .name }} /&gt;</span>
+        </a>
+
+        <button class="navbar-burger is-not-button-custom" data-target="navbar-menu-activator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="navbar-menu" id="navbar-menu-activator">
+        <div class="navbar-start">
+          {{ $page := .page }}
+          {{ range .menu }}
+            <a href="{{ .URL }}" class="navbar-item {{ if $page.IsMenuCurrent .Menu . }}is-active has-text-weight-bold{{ end }}">{{ .Name }}</a>
+          {{ end }}
+        </div>
+        <div class="navbar-end">
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

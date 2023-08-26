@@ -1,0 +1,63 @@
+{{ define "body" }}
+  {{ partial "components/nav.html" (dict 
+    "name" .Site.Params.metadata.name
+    "menu" .Site.Menus.main
+    "page" .
+    "sticky" true
+  )}}
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds-desktop is-full-tablet">
+          <h1 class="title">My Portfolio</h1>
+          {{ range .Params.entries }}
+            <h2 class="title is-4">{{ .title }}</h2>
+
+            <div class="custom-grid">
+              {{ range .items }}
+                <div class="custom-grid-item">
+                  <div class="card">
+                    <div class="card-header">
+                      <p class="card-header-title">{{ .name }}</p>
+                      {{ with .link }}
+                        <a href="{{ . }}" class="card-header-icon has-text-grey">
+                          <span class="icon">
+                            <i class="fa-solid fa-link"></i>
+                          </span>
+                        </a>
+                      {{ end }}
+                    </div>
+                    {{ with .image }}
+                      <div class="card-image">
+                        <figure class="image">
+                          {{ $img := $.Resources.GetMatch . }}
+                          <img src="{{ $img.RelPermalink }}">
+                        </figure>
+                      </div>
+                    {{ end }}
+                    <div class="card-content">
+                      {{ with .subname }}
+                        <h3 class="subtitle">{{ . }}</h3>
+                      {{ end }}
+                      {{ with .text }}
+                        <p class="content">{{ . }}</p>
+                      {{ end }}
+                      {{ with .points }}
+                        <ul class="content">
+                          {{ range . }}
+                            <li>{{ . }}</li>
+                          {{ end }}
+                        </ul>
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

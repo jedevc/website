@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+$primary: #ffd832;
+$info: #54c0f2;
+$success: #83ef40;
+$warning: #edf73b;
+$danger: #f42474;
+$link: darken($primary, 20%);
+
+$navbar-burger-color: inherit;
+
+$size-7: 0.85rem;
+
+$section-padding: 2rem 1.5rem;
+
+$navbar-item-focus-background-color: lighten($primary, 30%);
+$hero-navbar-item-hover-background-color: darken($primary, 15%);
+$hero-navbar-item-focus-background-color: $hero-navbar-item-hover-background-color;
+
+@import "bulma/bulma.sass";
+
+html {
+  scroll-behavior: smooth;
+}
+
+.full-page-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  min-height: 100vh;
+  min-height: stretch;
+
+  background-color: $white;
+}
+
+.content {
+  .columns {
+    .column {
+      .gatsby-resp-image-wrapper {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 250px !important;
+      }
+    }
+  }
+}
+
+.is-fullwidth {
+  width: 100%;
+}
+.is-fullheight {
+  height: 100%;
+}
+.has-fullwidth-children > * {
+  width: 100%;
+}
+.has-fullheight-children > * {
+  height: 100%;
+}
+
+code {
+  padding: 1px .2em;
+  border: 1px solid $grey-lighter;
+  color: inherit;
+}
+.highlight {
+  border: 1px solid $grey-lighter;
+  margin: .5em 0;
+  code {
+    border: none;
+  }
+}
+
+@import "button";
+@import "nav";
+@import "grid";
+@import "sidebar";
+@import "loader";
+@import "hero";
+@import "fontawesome";
+
+@import "hacks";

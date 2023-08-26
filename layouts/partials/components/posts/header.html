@@ -1,0 +1,10 @@
+{{ if .title }}
+  <h2 class="title mb-2 {{ if .small }}is-4{{ else }}is-3{{ end }}">
+    {{ .title }}
+  </h2>
+{{ end }}
+{{ if .date }}
+  <div class="has-text-grey mb-5 is-size-7">
+    <time datetime="{{ time.Format "2006-01-02" .date }}">{{ time.Format "2 January 2006" .date }}</time>
+  </div>
+{{ end }}

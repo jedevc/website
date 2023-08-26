@@ -1,0 +1,30 @@
+{{ define "body" }}
+  {{ partial "components/nav.html" (dict 
+    "name" .Site.Params.metadata.name
+    "menu" .Site.Menus.main
+    "page" .
+    "sticky" true
+  )}}
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds-desktop is-full-tablet">
+          <a class="is-pulled-right" href="https://github.com/jedevc/website/blob/{{ .GitInfo.Hash }}/content/{{ .File.Path }}">
+            <span class="icon has-text-black">
+              <i class="fa-solid fa-pencil"></i>
+            </span>
+          </a>
+
+          {{ partial "components/posts/header.html" (dict 
+            "title" .Title
+            "date" .Date
+          )}}
+          <div class="content">
+            {{ .Content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}
