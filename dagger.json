@@ -1,0 +1,16 @@
+{
+  "name": "website",
+  "sdk": "go",
+  "dependencies": [
+    {
+      "name": "hugo",
+      "source": "github.com/jedevc/daggerverse/hugo@3b0acd287a4390f38a93664a0d5fc238ab30f903"
+    },
+    {
+      "name": "npm",
+      "source": "github.com/jedevc/daggerverse/npm@3b0acd287a4390f38a93664a0d5fc238ab30f903"
+    }
+  ],
+  "source": "ci",
+  "engineVersion": "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+}
