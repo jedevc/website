@@ -9,7 +9,7 @@ whoami: |
   and systems programming, to hacking and learning (arguably) exotic
   programming languages.
 
-  I'm currently a maintainer for [BuildKit](https://github.com/moby/buildkit),
-  and do various contributions around the container ecosystem from time to
-  time 📦
+  I currently work at [Dagger](https://dagger.io), trying to build better
+  CI, and also do do various contributions around the container ecosystem
+  from time to time 📦
 ---
