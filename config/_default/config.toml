@@ -29,17 +29,13 @@ minifyOutput = true
     pageRef = "/blog"
     weight = 20
   [[menu.main]]
-    name = "Portfolio"
-    pageRef = "/portfolio"
-    weight = 30
-  [[menu.main]]
     name = "CV"
     url = "https://cv.jedevc.com"
-    weight = 40
+    weight = 30
   [[menu.main]]
     name = "About"
     pageRef = "/about"
-    weight = 50
+    weight = 40
 
 [markup]
   [markup.highlight]
