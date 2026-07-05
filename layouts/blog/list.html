@@ -40,7 +40,7 @@
           </div>
           
           {{ range .Pages }}
-            <a href="{{ .Permalink }}">
+            <a href="{{ .RelPermalink }}">
               <div style="margin-bottom: 1rem;">
                 {{ partial "components/posts/preview.html" (dict 
                   "title" .Title
