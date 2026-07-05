@@ -1,0 +1,31 @@
+{{ $ingredients := . }}
+{{ $types := slice }}
+{{ range $ingredients }}
+  {{ if not (in $types .type) }}
+    {{ $types = $types | append .type }}
+  {{ end }}
+{{ end }}
+
+<div class="recipe-ingredients mt-5">
+  <div class="columns is-multiline">
+    {{ range $types }}
+      {{ $type := . }}
+      {{ $components := where $ingredients "type" $type }}
+      <div class="column is-half-tablet">
+        <article class="card is-fullheight">
+          <div class="card-content">
+            <h2 class="title is-5">{{ humanize $type }}</h2>
+            {{ range $components }}
+              <section class="recipe-ingredient-component content">
+                {{ with .component }}
+                  <h3>{{ . }}</h3>
+                {{ end }}
+                {{ .content }}
+              </section>
+            {{ end }}
+          </div>
+        </article>
+      </div>
+    {{ end }}
+  </div>
+</div>

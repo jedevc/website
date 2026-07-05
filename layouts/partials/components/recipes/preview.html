@@ -1,0 +1,14 @@
+<div class="card is-fullheight">
+  <div class="card-image">
+    {{ partial "components/recipes/image.html" . }}
+  </div>
+  <div class="card-content">
+    <h3 class="title is-4 mb-2">{{ .Title }}</h3>
+    {{ with .Date }}
+      <div class="has-text-grey mb-4 is-size-7">
+        <time datetime="{{ time.Format "2006-01-02" . }}">{{ time.Format "2 January 2006" . }}</time>
+      </div>
+    {{ end }}
+    <p>{{ .Summary }}</p>
+  </div>
+</div>

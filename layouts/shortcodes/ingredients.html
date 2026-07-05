@@ -1,0 +1,13 @@
+{{/*
+  ingredients captures one recipe component for the grouped ingredient cards.
+  type defaults to base; component labels the subsection within that card.
+*/}}
+{{- $type := lower (or (.Get "type") "base") -}}
+{{- $component := .Get "component" -}}
+{{- $ingredients := .Page.Store.Get "recipe-ingredients" | default slice -}}
+{{- $ingredients = $ingredients | append (dict
+  "type" $type
+  "component" $component
+  "content" (.Inner | .Page.RenderString)
+) -}}
+{{- .Page.Store.Set "recipe-ingredients" $ingredients -}}

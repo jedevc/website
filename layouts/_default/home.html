@@ -33,26 +33,41 @@
       <div class="content">
         {{ .Content }}
       </div>
-      <div class="content">
-        <h3 class="title">From my blog</h3>
-      </div>
-      <div class="custom-grid">
-        {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
-          <div class="custom-grid-item">
-            <a href="{{ .RelPermalink }}" class="is-fullheight has-fullheight-children">
-              {{ partial "components/posts/preview.html" (dict 
-                "title" .Title
-                "date" .Date
-                "summary" .Summary
-                "small" true
-              )}}
-            </a>
-          </div>
-        {{ end }}
-      </div>
-      <a href="/blog" class="is-pulled-right">
-        See more...
-      </a>
+
+      {{ with first 2 (where .Site.RegularPages "Section" "recipes") }}
+        <div class="content">
+          <h3 class="title">From my <a href="/recipes">/recipes</a></h3>
+        </div>
+        <div class="columns">
+          {{ range . }}
+            <div class="column is-half">
+              <a href="{{ .RelPermalink }}" class="is-fullheight has-fullheight-children">
+                {{ partial "components/recipes/preview.html" . }}
+              </a>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ with first 3 (where .Site.RegularPages "Section" "blog") }}
+        <div class="content">
+          <h3 class="title">From my <a href="/blog">/blog</a></h3>
+        </div>
+        <div class="custom-grid is-one-third">
+          {{ range . }}
+            <div class="custom-grid-item">
+              <a href="{{ .RelPermalink }}" class="is-fullheight has-fullheight-children">
+                {{ partial "components/posts/preview.html" (dict 
+                  "title" .Title
+                  "date" .Date
+                  "summary" .Summary
+                  "small" true
+                )}}
+              </a>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
     </div>
   </section>
 {{ end }}
