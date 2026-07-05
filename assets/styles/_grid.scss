@@ -1,5 +1,6 @@
 @charset "utf-8";
 @use "sass:math";
+@use "bulma/sass/utilities/mixins" as *;
 
 $grid-gap: 1rem;
 $grid-gap-half: math.div($grid-gap, 2);

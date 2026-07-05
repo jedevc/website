@@ -1,10 +1,8 @@
-$duration: 2s;
-
 :root {
-  --loader-color: #{darken($primary, 20%)};
+  --loader-color: var(--bulma-primary);
 }
 .hero {
-  --loader-color: #{darken($primary, 30%)};
+  --loader-color: var(--bulma-primary);
 }
 
 .navbar-loader {

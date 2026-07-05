@@ -1,23 +1,34 @@
 @charset "utf-8";
 
-$primary: #ffd832;
-$info: #54c0f2;
-$success: #83ef40;
-$warning: #edf73b;
-$danger: #f42474;
-$link: darken($primary, 20%);
+@use "bulma/sass" as * with (
+  $primary: #7ca982,
+  $link: #7ca982,
+  $info: #4f8fb0,
+  $success: #7ca982,
+  $warning: #d0a545,
+  $danger: #d96b6b,
+  $scheme-h: 140,
+  $scheme-s: 16%,
+  $radius: 0.5rem,
+  $radius-large: 0.85rem,
+  $size-7: 0.85rem,
+  $section-padding: 2.5rem 1.5rem,
+  $navbar-padding-vertical: 0.75rem,
+  $navbar-box-shadow-size: 0 1px 0 0,
+  $hero-body-padding: 4rem 1.5rem,
+  $hero-body-padding-tablet: 4.5rem 3rem,
+  $hero-gradient-s-offset: 2%,
+  $hero-gradient-l-offset: 8%
+);
 
-$navbar-burger-color: inherit;
-
-$size-7: 0.85rem;
-
-$section-padding: 2rem 1.5rem;
-
-$navbar-item-focus-background-color: lighten($primary, 30%);
-$hero-navbar-item-hover-background-color: darken($primary, 15%);
-$hero-navbar-item-focus-background-color: $hero-navbar-item-hover-background-color;
-
-@import "bulma/bulma.sass";
+@use "button";
+@use "nav";
+@use "grid";
+@use "sidebar";
+@use "loader";
+@use "hero";
+@use "fontawesome";
+@use "hacks";
 
 html {
   scroll-behavior: smooth;
@@ -32,7 +43,7 @@ html {
   min-height: 100vh;
   min-height: stretch;
 
-  background-color: $white;
+  background-color: var(--bulma-scheme-main);
 }
 
 .content {
@@ -63,23 +74,13 @@ html {
 
 code {
   padding: 1px .2em;
-  border: 1px solid $grey-lighter;
+  border: 1px solid var(--bulma-border);
   color: inherit;
 }
 .highlight {
-  border: 1px solid $grey-lighter;
+  border: 1px solid var(--bulma-border);
   margin: .5em 0;
   code {
     border: none;
   }
 }
-
-@import "button";
-@import "nav";
-@import "grid";
-@import "sidebar";
-@import "loader";
-@import "hero";
-@import "fontawesome";
-
-@import "hacks";

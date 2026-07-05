@@ -1,16 +1,18 @@
-$hero-picture-background-color: #ffffe4;
+@use "bulma/sass/utilities/mixins" as *;
+
+$hero-picture-background-color: var(--bulma-scheme-main-bis);
 
 .hero {
   .hero-picture {
     background-color: $hero-picture-background-color;
-    border: 1px solid $border;
-    box-shadow: $shadow;
-    border-radius: $radius;
+    border: 1px solid var(--bulma-border);
+    box-shadow: var(--bulma-shadow);
+    border-radius: var(--bulma-radius-large);
 
-    max-width: 40vh;
-    max-height: 40vh;
+    max-width: 32vh;
+    max-height: 32vh;
 
-    width: 90%;
+    width: 80%;
 
     img {
       image-rendering: pixelated;

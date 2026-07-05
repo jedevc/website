@@ -1,25 +1,43 @@
-nav.navbar .navbar-item {
-  &:focus {
-    background-color: $navbar-item-focus-background-color;
-  }
-}
-.hero {
-  nav.navbar .navbar-item {
-    &:hover, &.is-active {
-      background-color: $hero-navbar-item-hover-background-color;
-    }
-    &:focus {
-      background-color: $hero-navbar-item-focus-background-color;
-    }
-  }
-
-  nav.navbar {
-    box-shadow: 0px 0px 3px 3px darken($primary, 15%);
-  }
-}
+@use "bulma/sass/utilities/mixins" as *;
 
 .is-sticky-nav {
-  z-index: $navbar-z;
+  z-index: var(--bulma-navbar-z);
   position: sticky;
   top: 0;
+}
+
+.navbar-item.is-tab {
+  min-height: auto;
+  margin: 0.6rem 0.25rem;
+  padding: 0.35rem 0.75rem 0.2rem;
+
+  &:hover,
+  &:focus {
+    background-color: var(--bulma-primary-soft);
+  }
+
+  &.is-active {
+    padding-bottom: calc(0.2rem - var(--bulma-navbar-tab-active-border-bottom-width));
+  }
+}
+
+@include touch {
+  .navbar-item.is-tab {
+    border-bottom-color: transparent;
+    border-bottom-width: 0;
+    border-radius: var(--bulma-radius);
+    margin: 0.25rem 0.75rem;
+    padding: 0.65rem 0.85rem;
+
+    &:hover,
+    &:focus,
+    &.is-active {
+      background-color: var(--bulma-primary-soft);
+      color: var(--bulma-primary-bold);
+    }
+
+    &.is-active {
+      padding-bottom: 0.5rem;
+    }
+  }
 }

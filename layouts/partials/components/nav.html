@@ -16,7 +16,7 @@
         <div class="navbar-start">
           {{ $page := .page }}
           {{ range .menu }}
-            <a href="{{ .URL }}" class="navbar-item {{ if $page.IsMenuCurrent .Menu . }}is-active has-text-weight-bold{{ end }}">{{ .Name }}</a>
+            <a href="{{ .URL }}" class="navbar-item is-tab {{ if $page.IsMenuCurrent .Menu . }}is-active has-text-weight-bold{{ end }}">{{ .Name }}</a>
           {{ end }}
         </div>
         <div class="navbar-end">
@@ -24,4 +24,5 @@
       </div>
     </div>
   </nav>
+  <div class="navbar-loader loading"></div>
 </div>

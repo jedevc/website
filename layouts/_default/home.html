@@ -1,5 +1,12 @@
 {{ define "body" }}
-  {{ partial "components/hero.html" (dict 
+  {{ partial "components/nav.html" (dict
+    "name" .Site.Params.metadata.name
+    "menu" .Site.Menus.main
+    "page" .
+    "sticky" true
+  )}}
+
+  {{ partial "components/hero.html" (dict
     "name" .Site.Params.metadata.name
     "title" .Site.Params.metadata.title
     "description" .Site.Params.metadata.description
