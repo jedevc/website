@@ -1,7 +1,8 @@
 @use "bulma/sass/utilities/mixins" as *;
 
 .is-sticky-nav {
-  z-index: var(--bulma-navbar-z);
+  // z-index: var(--bulma-navbar-z);
+  z-index: 100;
   position: sticky;
   top: 0;
 }
