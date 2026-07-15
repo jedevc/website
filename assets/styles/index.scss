@@ -20,6 +20,7 @@
   $hero-gradient-s-offset: 2%,
   $hero-gradient-l-offset: 8%
 );
+@use "bulma/sass/utilities/css-variables" as cv;
 
 @use "button";
 @use "nav";
@@ -29,6 +30,52 @@
 @use "hero";
 @use "fontawesome";
 @use "hacks";
+
+@mixin dark-theme {
+  @include cv.register-vars(
+    (
+      "scheme-main-l": 15%,
+      "scheme-main-bis-l": 18%,
+      "scheme-main-ter-l": 21%,
+      "background-l": 20%,
+      "border-weak-l": 28%,
+      "border-l": 34%,
+      "text-weak-l": 75%,
+      "text-l": 87%,
+      "text-strong-l": 96%,
+      "text-title-l": 100%,
+      "primary-on-scheme-l": 70%,
+    )
+  );
+
+  // Bulma's dark theme uses a white shadow; use a subdued green-black instead.
+  --bulma-shadow: 0 0.5em 1em -0.125em rgba(5, 10, 7, 0.45),
+    0 0 0 1px rgba(5, 10, 7, 0.18);
+
+  .box {
+    @include cv.register-vars(
+      (
+        "box-background-color": #{cv.getVar("scheme-main-bis")},
+      )
+    );
+  }
+
+  .navbar {
+    @include cv.register-vars(
+      (
+        "navbar-background-color": #{cv.getVar("scheme-main-bis")},
+      )
+    );
+  }
+}
+
+@include cv.system-theme($name: "dark") {
+  @include dark-theme;
+}
+
+@include cv.bulma-theme($name: "dark") {
+  @include dark-theme;
+}
 
 html {
   scroll-behavior: smooth;
