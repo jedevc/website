@@ -1,0 +1,39 @@
+{{ define "body" }}
+  {{ partial "components/nav.html" (dict
+    "name" .Site.Params.metadata.name
+    "menu" .Site.Menus.main
+    "page" .
+    "sticky" true
+  )}}
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-thirds-desktop is-full-tablet">
+          {{ with .GitInfo }}
+            <a class="is-pulled-right" href="https://github.com/jedevc/website/blob/{{ .Hash }}/content/{{ $.File.Path }}">
+              <span class="icon has-text-black">
+                <i class="fa-solid fa-pencil"></i>
+              </span>
+            </a>
+          {{ end }}
+
+          <h1 class="title">{{ .Title }}</h1>
+
+          {{ partial "components/recipes/image.html" . }}
+
+          {{ $content := .Content }}
+          {{ $ingredients := .Store.Get "recipe-ingredients" }}
+
+          {{ with $ingredients }}
+            {{ partial "components/recipes/ingredients.html" . }}
+          {{ end }}
+
+          <div class="content mt-5">
+            {{ $content }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

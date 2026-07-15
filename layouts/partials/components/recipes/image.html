@@ -1,0 +1,13 @@
+{{ $image := or .Params.image .Params.hero_image .Params.heroImage }}
+{{ with $image }}
+  {{ $resource := $.Resources.GetMatch . }}
+  {{ if $resource }}
+    {{ $image = $resource.RelPermalink }}
+  {{ else }}
+    {{ $image = path.Join $.RelPermalink . }}
+  {{ end }}
+
+  <figure class="image is-3by2">
+    <img src="{{ $image }}" alt="{{ $.Title }}">
+  </figure>
+{{ end }}

@@ -1,0 +1,10 @@
+.recipe-ingredient-component + .recipe-ingredient-component {
+  border-top: 1px solid var(--bulma-border-weak);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.recipe-ingredient-component h3 {
+  font-size: var(--bulma-size-7);
+  margin-bottom: 0.5em;
+}
