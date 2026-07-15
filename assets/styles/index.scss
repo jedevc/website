@@ -30,6 +30,7 @@
 @use "hero";
 @use "fontawesome";
 @use "hacks";
+@use "syntax";
 
 @mixin dark-theme {
   @include cv.register-vars(
@@ -67,6 +68,8 @@
       )
     );
   }
+
+  @include syntax.dark-theme;
 }
 
 @include cv.system-theme($name: "dark") {
@@ -75,6 +78,10 @@
 
 @include cv.bulma-theme($name: "dark") {
   @include dark-theme;
+}
+
+@include cv.bulma-theme($name: "light") {
+  @include syntax.light-theme;
 }
 
 html {

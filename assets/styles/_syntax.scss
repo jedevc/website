@@ -1,0 +1,51 @@
+@mixin dark-theme {
+  .chroma {
+    --syntax-background: #0d1117;
+    --syntax-text: #e6edf3;
+    --syntax-keyword: #ff7b72;
+    --syntax-name: #79c0ff;
+    --syntax-function: #d2a8ff;
+    --syntax-string: #a5d6ff;
+    --syntax-comment: #8b949e;
+    --syntax-error: #f85149;
+  }
+}
+
+@mixin light-theme {
+  .chroma {
+    --syntax-background: #f7f7f7;
+    --syntax-text: #1f2328;
+    --syntax-keyword: #cf222e;
+    --syntax-name: #0550ae;
+    --syntax-function: #6639ba;
+    --syntax-string: #0a3069;
+    --syntax-comment: #57606a;
+    --syntax-error: #82071e;
+  }
+}
+
+.chroma {
+  --syntax-background: #f7f7f7;
+  --syntax-text: #1f2328;
+  --syntax-keyword: #cf222e;
+  --syntax-name: #0550ae;
+  --syntax-function: #6639ba;
+  --syntax-string: #0a3069;
+  --syntax-comment: #57606a;
+  --syntax-error: #82071e;
+
+  background-color: var(--syntax-background);
+  color: var(--syntax-text);
+
+  .err { color: var(--syntax-error); }
+  .k, .kc, .kd, .kn, .kp, .kr, .kt { color: var(--syntax-keyword); }
+  .na, .nc, .no, .nd, .ni, .nl, .nn, .nt, .nv, .vc, .vg, .vi, .vm {
+    color: var(--syntax-name);
+  }
+  .nb, .nf, .fm { color: var(--syntax-function); }
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss {
+    color: var(--syntax-string);
+  }
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .o, .ow, .or { color: var(--syntax-name); }
+  .c, .ch, .cm, .c1, .cs, .cp, .cpf { color: var(--syntax-comment); }
+}

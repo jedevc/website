@@ -39,5 +39,5 @@ minifyOutput = true
 
 [markup]
   [markup.highlight]
-    style = "github"
+    noClasses = false
     guessSyntax = true
